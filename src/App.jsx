@@ -1,10 +1,12 @@
-import './App.css'
+import Home from './components/home/Home';
+import Header from './components/header/Header';
 
 function App() {
 
   return (
     <>
-        <h1>Social tree</h1>
+        <Header/>
+        <Home/>
     </>
   )
 }

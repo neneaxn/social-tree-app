@@ -1,0 +1,86 @@
+body {
+    background-image: url(/public/images/background.jpg);
+    background-attachment:fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+footer {
+    background-color: #29303c;
+    width: 100%;
+    overflow: hidden;
+}
+
+.header {
+    background-color: #29303c;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    padding: 10px;
+}
+
+.header nav {
+    font-size: auto;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    position: absolute;
+    right: 0;
+    bottom: 8px;
+}
+
+
+.header h1 {
+    display: inline-block;
+    background-color: #29303c;
+    color: white;
+    margin-bottom: auto;
+    margin: 0 0.5em;
+}
+
+
+.header nav>* {
+    float: left;
+}
+
+nav a {
+    margin: 0 0.5em;
+    color: white;
+}
+
+nav a:hover {
+    cursor: pointer;
+    color: rgb(138, 191, 198);
+    font-weight: bolder;
+}
+
+.homeBtn {
+    font-size: auto;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.homeBtn:hover {
+    color: rgb(138, 191, 198);
+}
+
+
+/* .auth {
+    width: 100px;
+    margin: 8em auto;
+}
+
+
+footer {
+    padding: 0.5em;
+    width: 100%;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+}
+
+
+#user,
+#guest {
+    margin: 0;
+    padding: 0;
+} */
