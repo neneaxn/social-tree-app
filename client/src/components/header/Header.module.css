@@ -1,9 +1,19 @@
-body {
-    background-image: url(/public/images/background.jpg);
+/* body {
+    background-image: url(/images/background.jpg);
     background-attachment:fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
+    background-size: cover;
+    background-repeat: no-repeat;
+} */
+
+body {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    background: url("../images/background.jpg");
+    background-repeat: no-repeat;
     background-size: cover;
 }
 
@@ -15,37 +25,31 @@ footer {
 
 .header {
     background-color: #29303c;
-    width: 100%;
+    width: auto;
     position: relative;
     overflow: hidden;
-    padding: 10px;
+    padding: 30px;
+    align-items: center;
+    display: flex;
+    text-align: center;
+    justify-content: center;
 }
 
 .header nav {
-    font-size: auto;
+    font-size: 25px;
     font-family: Georgia, 'Times New Roman', Times, serif;
     position: absolute;
-    right: 0;
-    bottom: 8px;
+    bottom: 20px;
+    float: none;
+    display:flex;
+    align-items: center;
+    text-align: center;
 }
 
-
-.header h1 {
-    display: inline-block;
-    background-color: #29303c;
-    color: white;
-    margin-bottom: auto;
-    margin: 0 0.5em;
-}
-
-
-.header nav>* {
-    float: left;
-}
-
-nav a {
+.header nav a {
     margin: 0 0.5em;
     color: white;
+    text-decoration: none;
 }
 
 nav a:hover {
@@ -54,14 +58,14 @@ nav a:hover {
     font-weight: bolder;
 }
 
-.homeBtn {
+/* .homeBtn {
     font-size: auto;
     font-family: Georgia, 'Times New Roman', Times, serif;
-}
+} */
 
-.homeBtn:hover {
+/* .homeBtn:hover {
     color: rgb(138, 191, 198);
-}
+} */
 
 
 /* .auth {
