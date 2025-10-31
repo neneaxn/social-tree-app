@@ -16,7 +16,6 @@ export default function Register() {
                             type="email" 
                             id="email" 
                             name="email" 
-                            placeholder="john@outlook.com" 
                         />
                 
                         <label htmlFor="register-password">Password:</label>
@@ -26,14 +25,14 @@ export default function Register() {
                             id="register-password" 
                         />
 
-                        <label htmlFor="confirm-password">Confirm Password:</label>
+                        <label style={styles.label} htmlFor="confirm-password">Confirm Password:</label>
                         <input 
                             type="password" 
                             name="confirm-password" 
                             id="confirm-password" 
                         />
 
-                        <input className="btnSubmit" type="submit" value="Register"/>
+                        <input className={styles.btnSubmit} type="submit" value="Register"/>
 
                         {/* <div>
                             <p>If you already have an account click <Link to={<Login/>}>here</Link></p>
