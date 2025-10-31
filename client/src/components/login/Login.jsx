@@ -1,9 +1,38 @@
+import Register from '../register/Register';
 import styles from './Login.module.css'
 
 export default function Login() {
     return(
         <section id="login-page" className="auth">
-        <p>Login page</p>
+            <section className={styles.login}>
+                <form id="add">
+                    <div className={styles.container}>
+                    
+                        <h1>Login</h1>
+                        
+                        <label htmlFor="email">Email:</label>
+                        <input 
+                            type="email" 
+                            id="email" 
+                            name="email" 
+                        />
+                        
+                        <label htmlFor="register-password">Password:</label>
+                            <input 
+                                type="password" 
+                                name="register-password" 
+                                id="register-password" 
+                        />
+        
+        
+                        <input className={styles.btnSubmit} type="submit" value="Login"/>
+        
+                        {/* <div>
+                            <p>If you don't have an account click <Link to={<Register/>}>here</Link></p>
+                        </div> */}
+                    </div>
+                </form>
+            </section>
         {/* <form id="login" onSubmit={onSubmit}>
 
             <div className="container">
