@@ -1,0 +1,97 @@
+.allEvents {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 100px;
+}
+
+.allEVentsInfo {
+    width: 500px;
+    background-color: rgb(223, 227, 227);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+    margin: 20px;
+}
+
+.allEVentsInfo img {
+    width: 100%;
+    height: auto;
+}
+
+.eventContent {
+    padding: 16px;
+}
+
+.eventContent h1{
+    font-size: 28px;
+    margin-bottom: 8px;
+    margin-top: 5px;
+    color: rgb(119, 73, 14);
+}
+
+
+.eventContent h2{
+    font-size: 28px;
+    /* margin-bottom: 8px;
+    display: inline;
+    justify-content: center; */
+    color: black;
+    margin: 40px auto;
+    /* display: block; */
+    display: flex;
+    justify-content: center;
+    font-size: 25px;
+}
+
+/* .eventContent p{
+    font-size: 35px;
+    color: rgba(75, 74, 72, 0.788);
+    line-height: 1.3;
+} */
+
+.eventContent a{
+    /* display:flex; */
+    width: 30%;
+    padding: 8px 16px;
+    background-color: cadetblue;
+    text-decoration: none;
+    border-radius: 4px;
+    /* margin-top: 16px; */
+    color: antiquewhite;
+    text-align: center;
+    /* justify-content: center; */
+    margin: 20px auto;
+    display: block;
+    font-size: 20px;
+}
+
+.eventContent a:hover {
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+}
+
+/* .allEvents {
+    box-shadow: 0 10px 15px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    width: 90%;
+    border: solid;
+    padding: 20px;
+    margin: 30px 30px 30px 30px;
+    border-radius: 10px;
+    border-color: rgb(58, 52, 52);
+    flex-wrap: wrap;
+}
+
+.allEvents:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+
+.allEVentsInfo {
+    padding: 2px 16px;
+}
+
+img {
+    width: 100%;
+    height: auto;
+} */
