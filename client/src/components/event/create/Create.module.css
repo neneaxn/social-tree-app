@@ -60,7 +60,7 @@ select, option {
 }
 
 textarea {
-    width: 100%;
+    width: 98%;
     min-height: 7em;
     border: 2px solid #86a480;
     border-radius: 0.7em;
@@ -74,8 +74,7 @@ textarea {
 }
 
 .btnSubmit {
-    margin-top: 30px;
-    background: #13415e;
+    margin: auto;
     height: 60px;
     border-radius: 20px;
     color: rgb(187, 145, 145);
@@ -84,6 +83,7 @@ textarea {
     font-weight: 900;
     box-shadow: 6px 6px 6px #cbced1, -6px -6px 6px white;
     transition: 0.5s;
+    width: 50%;
 }
 
 .btnSubmit:hover {
