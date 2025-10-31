@@ -3,6 +3,7 @@ import styles from './Login.module.css'
 export default function Login() {
     return(
         <section id="login-page" className="auth">
+        <p>Login page</p>
         {/* <form id="login" onSubmit={onSubmit}>
 
             <div className="container">

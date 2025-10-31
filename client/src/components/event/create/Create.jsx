@@ -42,7 +42,7 @@ export default function Create() {
                     <input type="text" id="imageUrl" name="imageUrl" placeholder="Show us!"/>
 
                     <label htmlFor="summary">Summary:</label>
-                    <textarea name="summary" id="summary" placeholder="Tell us more about the even"></textarea>
+                    <textarea name="summary" id="summary" placeholder="Tell us more about the event..."></textarea>
                     <input className={styles.btnSubmit} type="submit" value="Submit"/>
                 </div>
             </form>
