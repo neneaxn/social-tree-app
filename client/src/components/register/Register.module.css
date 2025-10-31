@@ -46,6 +46,20 @@ input[type="password"] {
     box-shadow: inset 6px 6px 6px #c0c2c5, inset -6px -6px 6px white;
 }
 
+.clickHere {
+    font-size: 20px;
+    font-style: italic;
+    margin-top: 20px;
+    font-size: x-large;
+    margin-top: 50px;
+}
+
+a {
+    text-decoration: none;
+    font-weight: bold;
+    color: black
+}
+
 
 .btnSubmit {
     margin: auto;

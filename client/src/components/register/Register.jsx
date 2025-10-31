@@ -34,9 +34,9 @@ export default function Register() {
 
                         <input className={styles.btnSubmit} type="submit" value="Register"/>
 
-                        {/* <div>
-                            <p>If you already have an account click <Link to={<Login/>}>here</Link></p>
-                        </div> */}
+                        <div className={styles.clickHere}>
+                            <p>If you already have an account click <Link to='/login'>here</Link></p>
+                        </div>
                     </div>
                 </form>
             </section>

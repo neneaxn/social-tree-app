@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import Register from '../register/Register';
 import styles from './Login.module.css'
 
@@ -17,19 +18,18 @@ export default function Login() {
                             name="email" 
                         />
                         
-                        <label htmlFor="register-password">Password:</label>
+                        <label htmlFor="login-password">Password:</label>
                             <input 
                                 type="password" 
-                                name="register-password" 
-                                id="register-password" 
-                        />
-        
+                                name="login-password" 
+                                id="login-password" 
+                        />      
         
                         <input className={styles.btnSubmit} type="submit" value="Login"/>
         
-                        {/* <div>
-                            <p>If you don't have an account click <Link to={<Register/>}>here</Link></p>
-                        </div> */}
+                        <div className={styles.clickHere}>
+                            <p>If you don't have an account click <Link to='/register'>here</Link></p>
+                        </div>
                     </div>
                 </form>
             </section>
