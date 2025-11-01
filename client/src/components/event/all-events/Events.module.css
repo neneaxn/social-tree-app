@@ -1,12 +1,13 @@
-section {
+.events {
     margin: 0px;
     padding: 0px;
     box-sizing: border-box;
     font-family: sans-serif;
+    display: flex;
 }
 
-section h1 {
-    font-size: 50px;
+.events h1 {
+    font-size: 70px;
     justify-content: center;
     display: flex;
     color: rgb(165, 118, 52);

@@ -1,26 +1,28 @@
 import { useNavigate } from "react-router-dom";
 import styles from './Create.module.css';
+import * as eventService from "../../../services/eventsServices";
 
 export default function Create() {
     const navigate = useNavigate();
 
-    const createHandler = async (e) => {
+    const createGameSubmitHandler = async(e) => {
         e.preventDefault();
 
         const eventData = Object.fromEntries(new FormData(e.currentTarget));
+        try {
+            const result = await eventService.create(eventData);
+            console.log(result);
+            document.getElementById('add').reset();
+            navigate('/events');
+        } catch (err) {
+            console.log(err.message);     
+        }
 
-        // try {
-        //     await gameService.create(eventData);
-        //     document.getElementById('add').reset();
-        //     navigate('/events');
-        // } catch(err) {
-        //     //Error notification
-        //     console.log(err);
-        // };
     }
+
     return(
         <section className={styles.addEvent}>
-            <form id="add" onSubmit={createHandler}>
+            <form id="add" onSubmit={createGameSubmitHandler}>
                 <div className={styles.container}>
 
                     <h1>Add Your Event Here</h1>

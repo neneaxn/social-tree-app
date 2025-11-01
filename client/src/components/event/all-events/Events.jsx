@@ -1,15 +1,17 @@
 import styles from './Events.module.css'
 import EventItem from './single-event/EventItem';
+import { useEffect } from 'react';
+import * as eventService from '../../../services/eventsServices'
 
 export default function Events() {
-    return(
-        <section> 
-            {/* className={styles.eventsPage} */}
-            <h1>All Events</h1>
+    useEffect(() => {
 
-            {<EventItem/>}    
-            {<EventItem/>}   
-            {<EventItem/>}       
+    }, []);
+
+    return(
+        <div className={styles.events}> 
+            <h1>All Events</h1>
+            {<EventItem/>}  
         
             {/* <!-- Display paragraph: If there is no games  --> */}
             {/* {games.length == 0 && (
@@ -21,6 +23,6 @@ export default function Events() {
                 <GameItem key={game._id} {...game}/>
             ))} */}
 
-        </section>
+        </div>
     );
 }
