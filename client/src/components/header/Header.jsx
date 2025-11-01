@@ -5,8 +5,8 @@ export default function Navigation() {
     return(
         <header className={styles.header}>
         <nav>
-            <Link to="/">Home</Link>
-            <Link to="/events">Events</Link>
+            <Link to="/">Social tree</Link>
+            <Link to="/events">Explore the events</Link>
             <Link to="/create">Add Event</Link>
             <Link to="/login">Login</Link>
             <Link to="/logout">Logout</Link>

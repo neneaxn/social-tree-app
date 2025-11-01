@@ -18,7 +18,8 @@ export default function Events() {
             {events.length == 0 ?
                 (<p className={styles.noEvents}>No events currently. Please come back later!</p>)
             : 
-                (events.map(event => (<EventItem key={event._id} {...event}/>)))}   
+                (events.map(event => (<EventItem key={event._id} {...event}/>)))
+            }   
 
         </div>
     );

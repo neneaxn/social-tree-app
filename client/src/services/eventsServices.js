@@ -8,6 +8,12 @@ export const getAll = async () => {
     return Object.values(result);
 };
 
+export const getOne = async (eventId) => {
+    const result = await request.get(`${baseUrl}/${eventId}`);
+
+    return result;
+}
+
 export const create = async (eventData) => {
     const result = await request.post(baseUrl, eventData)
 
