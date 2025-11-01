@@ -5,6 +5,11 @@ body {
     background: url("../images/background.jpg");
     background-repeat: no-repeat;
     background-size: cover;
+    
+}
+
+nav {
+    font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
 .header {

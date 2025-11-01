@@ -11,7 +11,6 @@ export default function Create() {
         const eventData = Object.fromEntries(new FormData(e.currentTarget));
         try {
             const result = await eventService.create(eventData);
-            console.log(result);
             document.getElementById('add').reset();
             navigate('/events');
         } catch (err) {
@@ -29,8 +28,8 @@ export default function Create() {
 
                     <label htmlFor="type">Type:</label>
                     <select name="type" id="type">
-                        <option value="business">Business</option>
-                        <option value="leisure">Leisure</option>
+                        <option value="Business">Business</option>
+                        <option value="Leisure">Leisure</option>
                     </select>
 
                     <label htmlFor="title">Title:</label>

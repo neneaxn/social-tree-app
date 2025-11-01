@@ -1,6 +1,7 @@
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import * as eventService from "../../../services/eventsServices";
+import styles from '../details/Details.module.css'
 
 export default function EventDetails() {
     const [event, setEvent] = useState({});
@@ -12,18 +13,17 @@ export default function EventDetails() {
     }, [eventId])
 
     return (
-        <section id="event-details">
-            <h1>More about this event</h1>
-            <div className="info-section">
+        <div className={styles.eventDetails}>
+            <div className={styles.infoSection}>
 
-                <div className="event-header">
-                    <img className="event-img" src={event.imageUrl} alt={event.title} />
+                <div className={styles.eventHeader}>
+                    <img className={styles.eventImg} src={event.imageUrl} alt={event.title} />
                     <h1>{event.title}</h1>
-                    <p className="type">Type: {event.type}</p>
-                    <span className="location">Location: {event.location}</span>                    
+                    <span className={styles.type}>Type: {event.type}</span> <br/>
+                    <span className={styles.location}>Location: {event.location}</span>                    
                 </div>
 
-                <p className="text">
+                <p className={styles.text}>
                     {event.summary}
                 </p>
             </div>
@@ -60,6 +60,10 @@ export default function EventDetails() {
                 </form>
             </article> */}
 
-        </section>
+        </div>
     )
 }
+
+
+
+// Lorem ipsum dolor sit amet consectetur, adipisicing elit. Repellendus vel quibusdam excepturi nisi earum quidem aperiam quia quos nemo, facere doloremque laborum ea nobis ut. Doloremque architecto ea natus optio minima sequi voluptas perferendis magnam odio neque necessitatibus, reiciendis repellat, officia magni corporis autem explicabo quis! Quidem excepturi ex nemo.
