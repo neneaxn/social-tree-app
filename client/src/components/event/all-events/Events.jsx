@@ -1,27 +1,24 @@
 import styles from './Events.module.css'
 import EventItem from './single-event/EventItem';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import * as eventService from '../../../services/eventsServices'
 
 export default function Events() {
-    useEffect(() => {
+    const [events, setEvents] = useState([]);
 
+    useEffect(() => {
+        eventService.getAll()
+            .then(res => setEvents(res));
     }, []);
 
     return(
         <div className={styles.events}> 
-            <h1>All Events</h1>
-            {<EventItem/>}  
+            <h1>All Events</h1> 
         
-            {/* <!-- Display paragraph: If there is no games  --> */}
-            {/* {games.length == 0 && (
-                <h3 className="no-articles">No articles yet</h3>
-            )} */}
-            
-            {/* <!-- Display div: with information about every game (if any) --> */}
-            {/* {games.map(game => (
-                <GameItem key={game._id} {...game}/>
-            ))} */}
+            {events.length == 0 ?
+                (<p className={styles.noEvents}>No events currently. Please come back later!</p>)
+            : 
+                (events.map(event => (<EventItem key={event._id} {...event}/>)))}   
 
         </div>
     );
