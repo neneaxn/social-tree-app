@@ -1,16 +1,35 @@
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import * as eventService from "../../../services/eventsServices";
+import * as attendanceService from "../../../services/attendanceService"
 import styles from '../details/Details.module.css'
 
 export default function EventDetails() {
-    const [event, setEvent] = useState({});
     const { eventId } = useParams();
-
+    const [ event, setEvent ] = useState({});
+    //TODO
+    const [ guestCount, setGuestCount ] = useState(0);
+    const [ isAttending, setIsAttending ] = useState(false);
+    
     useEffect(() => {
         eventService.getOne(eventId)
-            .then(setEvent)
-    }, [eventId])
+            .then(event => setEvent(event))
+
+        attendanceService.getCount(eventId)
+            .then(count => setGuestCount(count))
+    }, [eventId]);
+
+    const handleToggleAttendance = () => {
+
+    if (isAttending) {
+        setGuestCount(prevCount => prevCount - 1);
+        setIsAttending(false);
+    } else {
+        setGuestCount(prevCount => prevCount + 1);
+        setIsAttending(true);
+    }};
+
+    const buttonText = isAttending ? "Unsubscribe" : "Join Event";
 
     return (
         <div className={styles.eventDetails}>
@@ -26,44 +45,26 @@ export default function EventDetails() {
                 <p className={styles.text}>
                     {event.summary}
                 </p>
-            </div>
-                {/* <!-- Bonus ( for Guests and Users ) -->
-                <div className="details-comments">
-                    <h2>Comments:</h2>
-                    <ul>
-                        <!-- list all comments for current game (If any) -->
-                        <li className="comment">
-                            <p>Content: I rate this one quite highly.</p>
-                        </li>
-                        <li className="comment">
-                            <p>Content: The best game.</p>
-                        </li>
-                    </ul>
-                    <!-- Display paragraph: If there are no games in the database -->
-                    <p className="no-comment">No comments.</p>
-                </div>
 
-                <!-- Edit/Delete buttons ( Only for creator of this game )  -->
+                <div className={styles.counterStyle}>
+                    {guestCount} Guests Attending
+                </div>
+                <button
+                    className={styles.buttonStyle}
+                    style={{backgroundColor: isAttending ? '#da9c55ff' : '#dde0baff'}}
+                    onClick={handleToggleAttendance}
+                >
+                    {buttonText}
+                </button>
+            </div>
+
+                {/* <!-- Edit/Delete buttons ( Only for creator of this event )  -->
                 <div className="buttons">
                     <a href="#" className="button">Edit</a>
                     <a href="#" className="button">Delete</a>
                 </div>
-            </div>
-
-            <!-- Bonus -->
-            <!-- Add Comment ( Only for logged-in users, which is not creators of the current game ) -->
-            <article className="create-comment">
-                <label>Add new comment:</label>
-                <form className="form">
-                    <textarea name="comment" placeholder="Comment......"></textarea>
-                    <input className="btn submit" type="submit" value="Add Comment"/>
-                </form>
-            </article> */}
+            </div> */}
 
         </div>
     )
 }
-
-
-
-// Lorem ipsum dolor sit amet consectetur, adipisicing elit. Repellendus vel quibusdam excepturi nisi earum quidem aperiam quia quos nemo, facere doloremque laborum ea nobis ut. Doloremque architecto ea natus optio minima sequi voluptas perferendis magnam odio neque necessitatibus, reiciendis repellat, officia magni corporis autem explicabo quis! Quidem excepturi ex nemo.

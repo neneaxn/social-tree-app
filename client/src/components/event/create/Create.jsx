@@ -5,10 +5,11 @@ import * as eventService from "../../../services/eventsServices";
 export default function Create() {
     const navigate = useNavigate();
 
-    const createGameSubmitHandler = async(e) => {
+    const createEventSubmitHandler = async(e) => {
         e.preventDefault();
 
         const eventData = Object.fromEntries(new FormData(e.currentTarget));
+        eventData['initialGuests'] = 0
         try {
             const result = await eventService.create(eventData);
             document.getElementById('add').reset();
@@ -21,7 +22,7 @@ export default function Create() {
 
     return(
         <section className={styles.addEvent}>
-            <form id="add" onSubmit={createGameSubmitHandler}>
+            <form id="add" onSubmit={createEventSubmitHandler}>
                 <div className={styles.container}>
 
                     <h1>Add Your Event Here</h1>

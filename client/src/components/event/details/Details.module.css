@@ -86,7 +86,25 @@
     color: #545454;
 }
 
-.buttons {
+.buttonStyle {
+    padding: 12px 24px;
+    font-size: 16px;
+    font-weight: 'bold';
+    border-radius: 8px;
+    cursor: 'pointer';
+    transition: 'background-color 0.3s ease, transform 0.1s ease';
+    /* // Change color based on status: Green for RSVP, Red for Unsubscribe */
+    /* background-color: isAttending ? '#dc3545' : '#28a745'; */
+    color: 'white';
+    border: 'none';
+    box-shadow: '0 2px 4px rgba(0, 0, 0, 0.2)';
+};
+
+.eventDetails>.counterStyle {
+    background-color: blueviolet;
+}
+
+/* .buttons {
     height: 10%;
     text-align: right;
     padding-right: 15px;
@@ -105,5 +123,5 @@
 .button:hover {
     background-color: #6f5d9c;
     color: white;
-}
+} */
 
