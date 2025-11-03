@@ -9,7 +9,7 @@ export default function Create() {
         e.preventDefault();
 
         const eventData = Object.fromEntries(new FormData(e.currentTarget));
-        eventData['initialGuests'] = 0
+        // eventData['initialGuests'] = 0
         try {
             const result = await eventService.create(eventData);
             document.getElementById('add').reset();

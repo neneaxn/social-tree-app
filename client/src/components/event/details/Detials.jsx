@@ -11,22 +11,23 @@ export default function EventDetails() {
     const [ guestCount, setGuestCount ] = useState(0);
     const [ isAttending, setIsAttending ] = useState(false);
     
+    
     useEffect(() => {
         eventService.getOne(eventId)
             .then(event => setEvent(event))
 
         attendanceService.getCount(eventId)
-            .then(count => setGuestCount(count))
+            .then(res => setGuestCount(res))
     }, [eventId]);
-
+    
     const handleToggleAttendance = () => {
-
-    if (isAttending) {
-        setGuestCount(prevCount => prevCount - 1);
-        setIsAttending(false);
-    } else {
-        setGuestCount(prevCount => prevCount + 1);
-        setIsAttending(true);
+        
+        if (isAttending) {
+            setGuestCount(prevCount => prevCount - 1);           
+            setIsAttending(false);
+        } else {
+            setGuestCount(prevCount => prevCount + 1);
+            setIsAttending(true);
     }};
 
     const buttonText = isAttending ? "Unsubscribe" : "Join Event";
