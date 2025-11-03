@@ -1,12 +1,24 @@
 import { Link } from "react-router-dom";
-import Register from '../register/Register';
+import useForm from "../../hooks/useForm";
 import styles from './Login.module.css'
 
-export default function Login() {
+const LoginFormKeys = {
+    Email: 'email',
+    Password: 'password',
+}
+
+export default function Login({
+    loginSubmitHandler
+}) {
+    const {values, onChange, onSubmit} = useForm(loginSubmitHandler, {
+        [LoginFormKeys.Email]: '',
+        [LoginFormKeys.Password]: '',
+    });
+
     return(
         <section id="login-page" className="auth">
             <section className={styles.login}>
-                <form id="add">
+                <form id="add" onSubmit={onSubmit}>
                     <div className={styles.container}>
                     
                         <h1>Login</h1>
@@ -15,14 +27,18 @@ export default function Login() {
                         <input 
                             type="email" 
                             id="email" 
-                            name="email" 
+                            name={LoginFormKeys.Email} 
+                            onChange={onChange}
+                            value={values[LoginFormKeys.Email]}
                         />
                         
-                        <label htmlFor="login-password">Password:</label>
-                            <input 
-                                type="password" 
-                                name="login-password" 
-                                id="login-password" 
+                        <label htmlFor="password">Password:</label>
+                        <input 
+                            type="password" 
+                            name={LoginFormKeys.Password} 
+                            id="password"                                                              
+                            value={values[LoginFormKeys.Password]}
+                            onChange={onChange}
                         />      
         
                         <input className={styles.btnSubmit} type="submit" value="Login"/>

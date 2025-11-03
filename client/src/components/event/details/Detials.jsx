@@ -27,16 +27,14 @@ export default function EventDetails() {
         try {
             if (method == 'POST') {
                 const res = await eventService.addAttendance(eventId);
-                console.log(res);
+                console.log('added');
                 
             } else {
                 eventService.removeAttendance(eventId,)
-                console.log('removed');
-                
+                console.log('removed');    
             }
         } catch(err) {
-            console.log(err.message);
-            
+            console.log(err.message);            
         }
 
         if (newIsAttanding) {
