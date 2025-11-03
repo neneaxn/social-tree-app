@@ -1,7 +1,7 @@
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import * as eventService from "../../../services/eventsServices";
-import * as attendanceService from "../../../services/attendanceService"
+import * as attendanceService from "../../../services/attendanceService";
 import styles from '../details/Details.module.css'
 
 export default function EventDetails() {
@@ -20,15 +20,50 @@ export default function EventDetails() {
             .then(res => setGuestCount(res))
     }, [eventId]);
     
-    const handleToggleAttendance = () => {
-        
-        if (isAttending) {
-            setGuestCount(prevCount => prevCount - 1);           
-            setIsAttending(false);
+    const handleAttendanceClick = async () => {
+        const newIsAttanding = !isAttending;
+        const method = newIsAttanding ? 'POST' : 'DELETE';
+
+        try {
+            if (method == 'POST') {
+                const res = await eventService.addAttendance(eventId);
+                console.log(res);
+                
+            } else {
+                eventService.removeAttendance(eventId,)
+                console.log('removed');
+                
+            }
+        } catch(err) {
+            console.log(err.message);
+            
+        }
+
+        if (newIsAttanding) {
+            setGuestCount(count => count + 1)
         } else {
-            setGuestCount(prevCount => prevCount + 1);
-            setIsAttending(true);
-    }};
+            setGuestCount(count => count - 1)
+        };
+
+        setIsAttending(newIsAttanding)
+        
+        // if (isAttending) {
+        //     setGuestCount(prevCount => prevCount - 1);
+        //     const newCount = guestCount - 1
+        //     const newData = { eventId, counter: newCount };
+        //     attendanceService.update(eventId, newData);      
+        //     setIsAttending(false);
+        // } else {
+        //     setGuestCount(prevCount => prevCount + 1);
+        //     const newCount = guestCount + 1;
+        //     const newData = { eventId, counter: newCount };
+        //     attendanceService.update(eventId, newData);     
+        //     setIsAttending(true);
+
+        // setIsAttending(!isAttending);
+    };
+
+
 
     const buttonText = isAttending ? "Unsubscribe" : "Join Event";
 
@@ -53,7 +88,7 @@ export default function EventDetails() {
                 <button
                     className={styles.buttonStyle}
                     style={{backgroundColor: isAttending ? '#da9c55ff' : '#dde0baff'}}
-                    onClick={handleToggleAttendance}
+                    onClick={handleAttendanceClick}
                 >
                     {buttonText}
                 </button>

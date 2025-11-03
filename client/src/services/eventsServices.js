@@ -18,16 +18,19 @@ export const getOne = async (eventId) => {
 export const create = async (eventData) => {
     const result = await request.post(baseUrl, eventData);
     
-    createAttendance(result._id);
+    // createAttendance(result._id);
 
     return result;
 };
 
-const createAttendance =  async (eventId) => {
-    const newAttendance = await request.post(`http://localhost:3030/jsonstore/attendancies`, {
-        eventId,
-        counter: 0
-    });
+export const addAttendance =  async (eventId) => {
+    const newAttendance = await request.post(`${baseUrl}/${eventId}/attendances`, {});
+    
+    return newAttendance;
+};
+
+export const removeAttendance =  async (eventId) => {
+    const newAttendance = await request.remove(`${baseUrl}/${eventId}/attendances`);
     
     return newAttendance;
 };
