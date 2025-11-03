@@ -19,19 +19,19 @@ function App() {
   }
 
   return (
-    <AuthContext>
+    <AuthContext.Provider value={{loginSubmitHandler}}>
     <div>
         <Header/>
         <Routes>
             <Route path='/' element={<Home/>}/>
             <Route path='/events' element={<Events/>}/>
-            <Route path='/login' element={<Login loginSubmitHandler={loginSubmitHandler}/>}/>
+            <Route path='/login' element={<Login/>}/>
             <Route path='/register' element={<Register/>}/>
             <Route path='/create' element={<Create/>}/>
             <Route path='/events/:eventId' element={<EventDetails/>}/>
         </Routes> 
     </div>
-    </AuthContext>
+    </AuthContext.Provider>
   )
 }
 
