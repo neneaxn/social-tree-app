@@ -1,4 +1,7 @@
-import { Route, Routes } from 'react-router-dom';
+import { Route, Routes, useNavigate } from 'react-router-dom';
+import { useState } from 'react';
+
+import * as authService from '../../client/src/services/authService'
 
 import Home from './components/home/Home';
 import Header from './components/header/Header';
@@ -7,15 +10,17 @@ import Register from './components/register/Register'
 import Create from './components/event/create/Create';
 import Events from './components/event/all-events/Events';
 import EventDetails from './components/event/details/Detials';
-import { useState } from 'react';
 import AuthContext from './contexts/authContext';
+import Path from './lib/paths';
 
 function App() {
+  const navigate = useNavigate();
   const [auth, setAuth] = useState({});
 
-  const loginSubmitHandler = (values) => {
-    console.log(values);
-    
+  const loginSubmitHandler = async (values) => {
+    const result = await authService.login(values.email, values.password)
+    setAuth(result);
+    navigate(Path.Home);
   }
 
   return (
@@ -23,12 +28,12 @@ function App() {
     <div>
         <Header/>
         <Routes>
-            <Route path='/' element={<Home/>}/>
-            <Route path='/events' element={<Events/>}/>
-            <Route path='/login' element={<Login/>}/>
-            <Route path='/register' element={<Register/>}/>
-            <Route path='/create' element={<Create/>}/>
-            <Route path='/events/:eventId' element={<EventDetails/>}/>
+            <Route path={Path.Home} element={<Home/>}/>
+            <Route path={Path.AllEvents} element={<Events/>}/>
+            <Route path={Path.Login} element={<Login/>}/>
+            <Route path={Path.Register} element={<Register/>}/>
+            <Route path={Path.CreateEvent} element={<Create/>}/>
+            <Route path={Path.EventDetails} element={<EventDetails/>}/>
         </Routes> 
     </div>
     </AuthContext.Provider>
