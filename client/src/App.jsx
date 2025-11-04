@@ -14,17 +14,30 @@ import AuthContext from './contexts/authContext';
 import Path from './lib/paths';
 
 function App() {
-  const navigate = useNavigate();
-  const [auth, setAuth] = useState({});
+    const navigate = useNavigate();
+    const [auth, setAuth] = useState({});
 
-  const loginSubmitHandler = async (values) => {
-    const result = await authService.login(values.email, values.password)
-    setAuth(result);
-    navigate(Path.Home);
-  }
+    const loginSubmitHandler = async (values) => {
+      const result = await authService.login(values.email, values.password)
+      setAuth(result);
+      navigate(Path.Home);
+    };
+
+    const registerSubmitHandler = async (values) => {
+      const result = await authService.register(values.email, values.password);
+      setAuth(result);
+      navigate(Path.Home);
+    }
+
+    const values = {
+      loginSubmitHandler,
+      registerSubmitHandler,
+      email: auth.email,
+      isAuthenticated: !!auth.email,
+    }
 
   return (
-    <AuthContext.Provider value={{loginSubmitHandler}}>
+    <AuthContext.Provider value={values}>
     <div>
         <Header/>
         <Routes>
