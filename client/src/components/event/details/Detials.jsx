@@ -18,6 +18,7 @@ export default function EventDetails() {
 
         attendanceService.getCount(eventId)
             .then(res => setGuestCount(res))
+            .catch(err => console.log(`${err.message}: attendances`))
     }, [eventId]);
     
     const handleAttendanceClick = async () => {

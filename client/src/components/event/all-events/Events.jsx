@@ -8,7 +8,8 @@ export default function Events() {
 
     useEffect(() => {
         eventService.getAll()
-            .then(res => setEvents(res));
+            .then(res => setEvents(res))
+            .catch(err => console.log(`${err.message}: events`))
     }, []);
 
     return(

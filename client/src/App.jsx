@@ -14,7 +14,6 @@ import Path from './lib/paths';
 
 function App() {
 
-
   return (
     <AuthProvider>
     <div>

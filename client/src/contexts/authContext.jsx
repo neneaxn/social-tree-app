@@ -1,6 +1,8 @@
-import { createContext, useState } from "react";
+import { createContext } from "react";
 import { useNavigate } from 'react-router-dom';
 import * as authService from '../services/authService'
+import Path from "../lib/paths";
+import useLocalStorageState from "../hooks/useLocalStorageState";
 
 const AuthContext = createContext();
 
@@ -8,10 +10,7 @@ export const AuthProvider = ({
     children,
 }) => {
     const navigate = useNavigate();
-    const [auth, setAuth] = useState(() => {
-        localStorage.removeItem('accessToken');
-        return {};
-    });
+    const [auth, setAuth] = useLocalStorageState('auth', {});
 
     const loginSubmitHandler = async (values) => {
       const result = await authService.login(values.email, values.password)
