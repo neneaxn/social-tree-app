@@ -26,11 +26,11 @@ export default function EventDetails() {
 
         try {
             if (method == 'POST') {
-                const res = await eventService.addAttendance(eventId);
+                const res = await attendanceService.add(eventId);
                 console.log('added');
                 
             } else {
-                eventService.removeAttendance(eventId,)
+                attendanceService.remove(eventId)
                 console.log('removed');    
             }
         } catch(err) {
@@ -60,8 +60,6 @@ export default function EventDetails() {
 
         // setIsAttending(!isAttending);
     };
-
-
 
     const buttonText = isAttending ? "Unsubscribe" : "Join Event";
 
