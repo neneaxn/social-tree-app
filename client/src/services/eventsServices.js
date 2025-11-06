@@ -22,3 +22,8 @@ export const create = async (eventData) => {
     return result;
 };
 
+export const edit = async (eventId, eventData) => {
+    const result = await request.put(`${baseUrl}/${eventId}`, eventData)
+    
+    return result;
+}

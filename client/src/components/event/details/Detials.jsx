@@ -1,9 +1,11 @@
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import { useContext, useEffect, useState } from "react";
 import * as eventService from "../../../services/eventsServices";
 import * as attendanceService from "../../../services/attendanceService";
 import styles from '../details/Details.module.css'
 import AuthContext from "../../../contexts/authContext";
+import Path from "../../../lib/paths";
+import pathToUrl from '../../../utils/pathToUrl'
 
 export default function EventDetails() {
     const { email, userId } = useContext(AuthContext);
@@ -88,21 +90,24 @@ export default function EventDetails() {
                 <div className={styles.counterStyle}>
                     {guestCount} Guests Attending
                 </div>
-                <button
-                    className={styles.buttonStyle}
-                    style={{backgroundColor: isAttending ? '#da9c55ff' : '#dde0baff'}}
-                    onClick={handleAttendanceClick}
-                >
-                    {buttonText}
-                </button>
+
 
                 <div>
                     {isOwner && (
+                    <>
+                    <button
+                        className={styles.buttonStyle}
+                        style={{backgroundColor: isAttending ? '#da9c55ff' : '#dde0baff'}}
+                        onClick={handleAttendanceClick}
+                    >
+                        {buttonText}
+                    </button>
                     <div className={styles.buttonStyle}>
-                        <a href="#" className="button">Edit</a>
+                        <Link to={pathToUrl(Path.EventEdit, { eventId })} className="button">Edit</Link>
                         <br/>
-                        <a href="#" className="button">Delete</a>
+                        <Link to={pathToUrl(Path.EventDelete, { eventId })} className="button">Delete</Link>
                     </div>
+                    </>
                     )}
                 </div>
             </div> 

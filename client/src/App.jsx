@@ -9,8 +9,10 @@ import Create from './components/event/create/Create';
 import Events from './components/event/all-events/Events';
 import EventDetails from './components/event/details/Detials';
 import Logout from './components/logout/Logout';
+import EventEdit from './components/event/edit/EventEdit';
 
 import Path from './lib/paths';
+
 
 function App() {
 
@@ -25,6 +27,7 @@ function App() {
             <Route path={Path.Register} element={<Register/>}/>
             <Route path={Path.CreateEvent} element={<Create/>}/>
             <Route path={Path.EventDetails} element={<EventDetails/>}/>
+            <Route path={Path.EventEdit} element={<EventEdit/>}/>
             <Route path={Path.Logout} element={<Logout/>}/>
         </Routes> 
     </div>
@@ -32,4 +35,4 @@ function App() {
   )
 }
 
-export default App
+export default App;

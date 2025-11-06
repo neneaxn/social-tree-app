@@ -12,7 +12,8 @@ export default function Create() {
         // eventData['initialGuests'] = 0
         try {
             const result = await eventService.create(eventData);
-            document.getElementById('add').reset();
+            console.log(result);
+            
             navigate('/events');
         } catch (err) {
             console.log(err.message);     
