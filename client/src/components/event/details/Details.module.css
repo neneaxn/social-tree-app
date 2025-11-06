@@ -88,7 +88,7 @@
 
 .buttonStyle {
     padding: 12px 24px;
-    font-size: 16px;
+    font-size: 30px;
     font-weight: 'bold';
     border-radius: 8px;
     cursor: 'pointer';
@@ -96,9 +96,10 @@
     /* // Change color based on status: Green for RSVP, Red for Unsubscribe */
     /* background-color: isAttending ? '#dc3545' : '#28a745'; */
     color: 'white';
-    border: 'none';
+    margin: 10px;
     box-shadow: '0 2px 4px rgba(0, 0, 0, 0.2)';
 };
+
 
 .eventDetails>.counterStyle {
     background-color: blueviolet;

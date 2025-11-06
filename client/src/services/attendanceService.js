@@ -10,8 +10,6 @@ export const getCount = async (eventId) => {
     })
 
     const result = await request.get(`${baseUrl}?${query}`);
-    console.log(result);
-    
     
     // const result = await request.get(baseUrl);
     // console.log(result);
