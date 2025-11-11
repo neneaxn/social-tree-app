@@ -27,3 +27,5 @@ export const edit = async (eventId, eventData) => {
     
     return result;
 }
+
+export const remove = async (eventId) => request.remove(`${baseUrl}/${eventId}`);

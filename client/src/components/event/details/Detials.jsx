@@ -1,4 +1,4 @@
-import { useParams, Link } from "react-router-dom";
+import { useParams, Link, useNavigate } from "react-router-dom";
 import { useContext, useEffect, useState } from "react";
 import * as eventService from "../../../services/eventsServices";
 import * as attendanceService from "../../../services/attendanceService";
@@ -8,6 +8,7 @@ import Path from "../../../lib/paths";
 import pathToUrl from '../../../utils/pathToUrl'
 
 export default function EventDetails() {
+    const navigate = useNavigate();
     const { email, userId } = useContext(AuthContext);
     const { eventId } = useParams();
     const [ event, setEvent ] = useState({});
@@ -69,6 +70,15 @@ export default function EventDetails() {
         // setIsAttending(!isAttending);
     };
 
+    const deleteButtonClickHandler = async () => {
+            const hasConfirmed = confirm(`Are you sure you want to delete ${event.title}?`);
+            
+            if (hasConfirmed) {
+                await eventService.remove(eventId)
+                navigate('/events')
+            }
+    }
+
     const buttonText = isAttending ? "Unsubscribe" : "Join Event";
     const isOwner = userId === event._ownerId;
 
@@ -105,7 +115,7 @@ export default function EventDetails() {
                     <div className={styles.buttonStyle}>
                         <Link to={pathToUrl(Path.EventEdit, { eventId })} className="button">Edit</Link>
                         <br/>
-                        <Link to={pathToUrl(Path.EventDelete, { eventId })} className="button">Delete</Link>
+                        <button className={styles.buttonStyle} onClick={deleteButtonClickHandler}>Delete</button>
                     </div>
                     </>
                     )}
