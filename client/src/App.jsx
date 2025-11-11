@@ -12,26 +12,29 @@ import Logout from './components/logout/Logout';
 import EventEdit from './components/event/edit/EventEdit';
 
 import Path from './lib/paths';
+import ErrorBoundary from './components/ErrorBoundary';
 
 
 function App() {
 
   return (
-    <AuthProvider>
-    <div>
-        <Header/>
-        <Routes>
-            <Route path={Path.Home} element={<Home/>}/>
-            <Route path={Path.AllEvents} element={<Events/>}/>
-            <Route path={Path.Login} element={<Login/>}/>
-            <Route path={Path.Register} element={<Register/>}/>
-            <Route path={Path.CreateEvent} element={<Create/>}/>
-            <Route path={Path.EventDetails} element={<EventDetails/>}/>
-            <Route path={Path.EventEdit} element={<EventEdit/>}/>
-            <Route path={Path.Logout} element={<Logout/>}/>
-        </Routes> 
-    </div>
-    </AuthProvider>
+    <ErrorBoundary>
+      <AuthProvider>
+      <div>
+          <Header/>
+          <Routes>
+              <Route path={Path.Home} element={<Home/>}/>
+              <Route path={Path.AllEvents} element={<Events/>}/>
+              <Route path={Path.Login} element={<Login/>}/>
+              <Route path={Path.Register} element={<Register/>}/>
+              <Route path={Path.CreateEvent} element={<Create/>}/>
+              <Route path={Path.EventDetails} element={<EventDetails/>}/>
+              <Route path={Path.EventEdit} element={<EventEdit/>}/>
+              <Route path={Path.Logout} element={<Logout/>}/>
+          </Routes> 
+      </div>
+      </AuthProvider>
+    </ErrorBoundary>
   )
 }
 
