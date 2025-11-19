@@ -7,44 +7,33 @@ export default function Navigation() {
     const {
         isAuthenticated,
         email
-    } = useContext(AuthContext)
+    } = useContext(AuthContext);
+
     return(
+        <>
+
         <header className={styles.header}>
-            <nav>
-                <Link to="/">Social tree</Link>
-                <Link to="/events">Explore the events</Link>
+            <nav className={styles.navigation}>
+                <Link to="/" className={styles.headerNavTags}>Social tree</Link>
+                <Link to="/events" className={styles.headerNavTags}>All events</Link>
                 {isAuthenticated ?
                 (
-                    <div id="user">
-                        <Link to="/create">Add Event</Link>
-                        <Link to="/logout">Logout</Link>
-                        <span>{`| Welcome, ${email}!`}</span>
+                    <div id='user'>
+                        <Link to="/create" className={styles.headerNavTags}>Add Event</Link>
+                        <Link to="/logout" className={styles.headerNavTags}>Logout</Link>
+                        <span className={styles.welcomeUser}>{`| Welcome, ${email}!`}</span>
                     </div> 
                 )
                 :
                 (   
                     <div id='guest'>
-                        <Link to="/login">Login</Link>
-                        <Link to="/register">Register</Link>
+                        <Link to="/login" className={styles.headerNavTags}>Login</Link>
+                        <Link to="/register" className={styles.headerNavTags}>Register</Link>
                     </div>                  
                 )}
-                
-                
-
-            {/* { isAuthenticated 
-
-            ? (<div id="user">
-                    <Link to="/create">Create Game</Link>
-                    <Link to="/logout">Logout</Link>
-                    <span> | Welcome, {username}</span>
-               </div>) 
-
-            : (<div id="guest">
-                    <Link to="/login">Login</Link>
-                    <Link to="/register">Register</Link>
-               </div>)} */}
 
             </nav>
         </header>
+        </>
     );
 }

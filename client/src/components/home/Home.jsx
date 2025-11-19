@@ -15,30 +15,23 @@ export default function Home() {
     return(
         <section className={styles.homePage}>
 
-        <div className={styles.welcome}>
-            <h1>Welcome to our community!</h1>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure, recusandae et. </p>
-        </div>
-        {/* <img src="/public/images/background.jpg" alt="event"/> */}
+            <div className={styles.welcome}>
+                <h1 className={styles.headingOne}>Welcome to our community!</h1>
+                <p className={styles.description}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure, recusandae et. </p>
+            </div>
 
-        <div className={styles.latestEvents}>
-            <div id="home-page">
-                <h1>Our events</h1>
+            <div className={styles.latestEvents}>
+                <h2 className={styles.headingTwo}>Our events</h2>
 
-                {/* <!-- Display div: with information about every game (if any) --> */}
-                {events.map(event => <HomeEvents key={event._id} {...event}/>)}
-                {/* <!-- Display paragraph: If there is no games  --> */}
-                {!events.length && <p className="no-articles">No upcoming events!</p>}
-            </div>            
-
-            {/* <!-- Display div: with information about every game (if any) --> */}
-            {/* {latestGames.map(game => <LatestGame {...game}/>)} */}
-
-            {/* <!-- Display paragraph: If there is no games  --> */}
-            {/* {!latestGames.length && <p className="no-articles">No games yet</p>} */}
-            
-        </div>
-    </section>
+                {events.length == 0 ? 
+                    (<p className={styles.noEvents}>No upcoming events!</p>) 
+                : 
+                    (events.map(event => <HomeEvents key={event._id} {...event}/>))
+                }               
+            </div>
+        </section>
     );
 }
+
+
 

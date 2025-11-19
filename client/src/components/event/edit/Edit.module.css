@@ -1,4 +1,4 @@
-.addEvent {
+.editEvent {
     position: relative;
     width: 600px;
     height: auto;
@@ -18,7 +18,7 @@
     padding: 40px;
 }
 
-h1 {
+.editHeadingOne {
     margin-bottom: 25px;
     font-size: 30px;
     color: rgb(138, 121, 95);
@@ -26,40 +26,36 @@ h1 {
     font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
-label,
-input,
-select {
-    display: block;
-    width: 100%;
-    padding: 0;
-    border: none;
-    outline: none;
-    box-sizing: border-box;
-}
 
-label {
+.label {
     margin-bottom: 8px;
-    font-size: 27px;
+    margin: 10px;
+    font-size: 30px;
     color: white;
+    padding: 10px;
     margin-top: 13px;
     font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
-
-input[type="text"],
-input[type="submit"],
-select, option {
+.inputText,
+.select, .option {
+    display: block;
+    width: 100%;
     background: #ecf0f3;
     padding: 10px;
     padding-left: 20px;
     height: 50px;
     margin-top: 10px;
+    margin-bottom: 10px;
     font-size: 24px;
+    border: none;
+    outline: none;
     border-radius: 20px;
+    box-sizing: border-box;
     box-shadow: inset 6px 6px 6px #c0c2c5, inset -6px -6px 6px white;
 }
 
-textarea {
+.textarea {
     width: 98%;
     min-height: 7em;
     border: 2px solid #86a480;
@@ -69,6 +65,7 @@ textarea {
     background-color: #ecf0f3;
     border-right-color: #ecf0f3;
     margin-top: 7px;
+    margin-bottom: 30px;
     color: black;
     box-shadow: inset 6px 6px 6px #c0c2c5, inset -6px -6px 6px white;
 }
@@ -84,6 +81,7 @@ textarea {
     box-shadow: 6px 6px 6px #cbced1, -6px -6px 6px white;
     transition: 0.5s;
     width: 50%;
+    border: none;
 }
 
 .btnSubmit:hover {

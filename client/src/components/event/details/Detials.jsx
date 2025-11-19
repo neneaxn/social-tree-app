@@ -88,7 +88,7 @@ export default function EventDetails() {
 
                 <div className={styles.eventHeader}>
                     <img className={styles.eventImg} src={event.imageUrl} alt={event.title} />
-                    <h1>{event.title}</h1>
+                    <h1 className={styles.detailsHeadingOne}>{event.title}</h1>
                     <span className={styles.type}>Type: {event.type}</span> <br/>
                     <span className={styles.location}>Location: {event.location}</span>                    
                 </div>

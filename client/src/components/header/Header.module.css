@@ -3,13 +3,8 @@ body {
     margin: 0;
     padding: 0;
     background: url("../images/background.jpg");
-    background-repeat: no-repeat;
+    background-repeat:inherit;
     background-size: cover;
-    
-}
-
-nav {
-    font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
 .header {
@@ -23,9 +18,9 @@ nav {
     justify-content: center;
 }
 
-.header nav {
+.navigation  {
     font-size: 25px;
-    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     position: absolute;
     bottom: 20px;
     float: none;
@@ -34,17 +29,17 @@ nav {
     text-align: center;
 }
 
-span {
+.welcomeUser {
     color: rgb(237, 237, 203);
 }
 
-.header nav a {
+.headerNavTags {
     margin: 0 0.5em;
     color: white;
     text-decoration: none;
 }
 
-nav a:hover {
+.headerNavTags:hover {
     cursor: pointer;
     color: rgb(138, 191, 198);
     font-weight: bolder;
@@ -55,24 +50,3 @@ footer {
     width: 100%;
     overflow: hidden;
 }
-
-/* .auth {
-    width: 100px;
-    margin: 8em auto;
-}
-
-
-footer {
-    padding: 0.5em;
-    width: 100%;
-    position: absolute;
-    left: 0;
-    bottom: 0;
-}
-
-
-#user,
-#guest {
-    margin: 0;
-    padding: 0;
-} */

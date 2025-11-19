@@ -14,7 +14,7 @@ export default function Events() {
 
     return(
         <div className={styles.events}> 
-            <h1>All Events</h1> 
+            <h1 className={styles.eventsHeadingOne}>All Events</h1> 
         
             {events.length == 0 ?
                 (<p className={styles.noEvents}>No events currently. Please come back later!</p>)

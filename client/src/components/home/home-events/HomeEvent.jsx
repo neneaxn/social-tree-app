@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import Path from '../../../lib/paths';
 import pathToUrl from '../../../utils/pathToUrl';
+import styles from '../home-events/HomeEvent.module.css'
 
 export default function HomeEvents({
     _id,
@@ -8,13 +9,13 @@ export default function HomeEvents({
     imageUrl,
 }) {
     return (
-        <div className="event">
-            <div className="image-wrap">
+        <div className={styles.event}>
+            <div className={styles.image}>
                 <img src={imageUrl}/>
             </div>
-            <h2>{title}</h2>
-            <div className="data-buttons">
-                <Link to={pathToUrl(Path.EventDetails, { eventId: _id })} className="btn details-btn">More</Link>
+            <h2 className={styles.headingTwoHomeEvent}>{title}</h2>
+            <div className={styles.buttons}>
+                <Link to={pathToUrl(Path.EventDetails, { eventId: _id })} className={styles.moreButton}>More</Link>
             </div>
         </div>
     )

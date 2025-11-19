@@ -24,39 +24,44 @@ export default function Register() {
                 <form id="add" onSubmit={onSubmit}>
                     <div className={styles.container}>
             
-                        <h1>Register</h1>
+                        <h1 className={styles.registerHeadingOne}>Register</h1>
                 
-                        <label htmlFor="email">Email:</label>
+                        <label className={styles.label} htmlFor="email">Email:</label>
                         <input 
                             type="email" 
                             id="email" 
                             name="email"
+                            className={styles.inputEmail}
                             onChange={onChange}
                             value={values[RegisterKeys.Email]}
                         />
                 
-                        <label htmlFor="password">Password:</label>
+                        <label className={styles.label} htmlFor="password">Password:</label>
                         <input 
                             type="password" 
                             name="password" 
                             id="password" 
+                            className={styles.inputPassword}
                             onChange={onChange}
                             value={values[RegisterKeys.Password]}
                         />
 
-                        <label style={styles.label} htmlFor="confirm-password">Confirm Password:</label>
+                        <label className={styles.label} htmlFor="confirm-password">Confirm Password:</label>
                         <input 
                             type="password" 
                             name="confirm-password" 
-                            id="confirm-password" 
+                            id="confirm-password"
+                            className={styles.inputPassword}
                             onChange={onChange}
                             value={values[RegisterKeys.ConfirmPassword]}
                         />
 
                         <input className={styles.btnSubmit} type="submit" value="Register"/>
 
-                        <div className={styles.clickHere}>
-                            <p>If you already have an account click <Link to='/login'>here</Link></p>
+                        <div>
+                            <p className={styles.clickHereP}>If you already have an account click 
+                                <Link to='/login' className={styles.clickHereA}> here</Link> 
+                            </p>
                         </div>
                     </div>
                 </form>

@@ -15,6 +15,7 @@ import Path from "./lib/paths";
 import ErrorBoundary from "./components/ErrorBoundary";
 import AuthGuardGuest from "./components/guards/AuthGuardGuest";
 import AuthGuardUser from "./components/guards/AuthGuardUser";
+import Footer from "./components/footer/Footer";
 
 function App() {
     return (
@@ -36,6 +37,7 @@ function App() {
                         <Route path={Path.Logout} element={<Logout />} />
                     </Route>
                 </Routes>
+                <Footer/>
             </div>
             </AuthProvider>
         </ErrorBoundary>

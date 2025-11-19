@@ -2,7 +2,6 @@
     display: flex;
     width: 70%;
     margin: 100px;
-    /* overflow: hidden; */
     border-radius: 10px;
     transition: all 0.4s;
     justify-content: center;
@@ -25,7 +24,7 @@
     margin: 50px;
 }
 
-.eventHeader>h1 {
+.detailsHeadingOne {
     text-align: center;
     color: black;
     margin-top: 5px;
@@ -33,12 +32,6 @@
     font-weight: 400;
     margin-bottom: 50px;
     
-}
-
-.eventHeader>h4 {
-    color: #555;
-    font-size: 23px;
-    font-weight: 400;
 }
 
 .location {
@@ -69,7 +62,7 @@
     box-shadow: 0 0 20px -10px rgba(0, 0, 0, 0.5);
 }
 
-.infoSection>.text {
+.text {
     margin-top: 100px;
     padding: 60px;
     height: 50%;
@@ -93,36 +86,14 @@
     border-radius: 8px;
     cursor: 'pointer';
     transition: 'background-color 0.3s ease, transform 0.1s ease';
-    /* // Change color based on status: Green for RSVP, Red for Unsubscribe */
-    /* background-color: isAttending ? '#dc3545' : '#28a745'; */
     color: 'white';
     margin: 10px;
     box-shadow: '0 2px 4px rgba(0, 0, 0, 0.2)';
 };
 
 
-.eventDetails>.counterStyle {
+.counterStyle {
     background-color: blueviolet;
 }
 
-/* .buttons {
-    height: 10%;
-    text-align: right;
-    padding-right: 15px;
-    padding-bottom: 40px;
-}
-
-.button {
-    height: 15%;
-    background-color: #54557b;
-    padding: 14px;
-    margin-top: auto;
-    font-size: 21px;
-    color: rgb(255, 255, 255);
-}
-
-.button:hover {
-    background-color: #6f5d9c;
-    color: white;
-} */
 

@@ -1,7 +1,6 @@
 import { useNavigate, useParams} from "react-router-dom";
 import styles from './Edit.module.css';
 import * as eventService from "../../../services/eventsServices";
-import useForm from "../../../hooks/useForm";
 import { useEffect, useState } from "react";
 
 export default function EventEdit() {
@@ -42,57 +41,62 @@ export default function EventEdit() {
     }
 
     return(
-        <section className={styles.addEvent}>
-            <form id="add" onSubmit={editEventSubmitHandler}>
+        <section className={styles.editEvent}>
+            <form id="edit" onSubmit={editEventSubmitHandler}>
                 <div className={styles.container}>
 
-                    <h1>Add Your Event Here</h1>
+                    <h1 className={styles.editHeadingOne}>Add Your Event Here</h1>
 
-                    <label htmlFor="type">Type:</label>
+                    <label className={styles.label} htmlFor="type">Type:</label>
                     <select 
                         onChange={onChange}
                         value={event.type}
                         name="type" 
                         id="type"
+                        className={styles.select}
                     >
                         <option value="Business">Business</option>
                         <option value="Leisure">Leisure</option>
                     </select>
 
-                    <label htmlFor="title">Title:</label>
+                    <label className={styles.label} htmlFor="title">Title:</label>
                     <input 
                         type="text" 
                         id="title" 
-                        name="title" 
+                        name="title"
+                        className={styles.inputText}
                         value={event.title}
                         onChange={onChange} 
                         placeholder="What?"
                     />
 
-                    <label htmlFor="location">Location:</label>
+                    <label className={styles.label} htmlFor="location">Location:</label>
                     <input 
                         type="text" 
                         id="location" 
                         name="location"
+                        className={styles.inputText}
                         value={event.location}
                         onChange={onChange} 
                         placeholder="Where?"
                     />
 
-                    <label htmlFor="imageUrl">Image:</label>
+                    <label className={styles.label} htmlFor="imageUrl">Image:</label>
                     <input 
                         type="text" 
                         id="imageUrl" 
                         name="imageUrl" 
+                        className={styles.inputText}
                         onChange={onChange} 
                         value={event.imageUrl}
                         placeholder="Show us!"
                     />
 
-                    <label htmlFor="summary">Summary:</label>
+                    <label className={styles.label} htmlFor="summary">Summary:</label>
                     <textarea 
                         name="summary" 
-                        id="summary" 
+                        id="summary"
+                        className={styles.textarea}
                         onChange={onChange}
                         value={event.summary}
                         placeholder="Tell us more about the event...">

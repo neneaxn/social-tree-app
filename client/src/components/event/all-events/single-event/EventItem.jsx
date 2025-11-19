@@ -10,11 +10,11 @@ export default function EventItem({
     return (
             <div className={styles.allEvents}>
                 <div className={styles.allEVentsInfo}>
-                    <img src={imageUrl}/>
+                    <img className={styles.imageStyle}src={imageUrl}/>
                     <div className={styles.eventContent}>
-                        <h1>{title}</h1>
-                        <h2>{location}</h2>                 
-                        <Link to={`/events/${_id}`}>Read more</Link>  
+                        <h1 className={styles.eventItemHeadingOne}>{title}</h1>
+                        <h2 className={styles.eventItemHeadingTwo}>{location}</h2>                 
+                        <Link to={`/events/${_id}`} className={styles.eventItemA}>Explore</Link>  
                     </div>
                 </div>
             </div>

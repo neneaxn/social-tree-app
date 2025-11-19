@@ -18,68 +18,41 @@ export default function Login() {
     });
 
     return(
-        <section id="login-page" className="auth">
-            <section className={styles.login}>
-                <form id="add" onSubmit={onSubmit}>
-                    <div className={styles.container}>
+        <section id="login-page" className={styles.login}>
+            <form id="add" onSubmit={onSubmit}>
+                <div className={styles.container}>
                     
-                        <h1>Login</h1>
+                    <h1 className={styles.loginHeadingOne}>Login</h1>
                         
-                        <label htmlFor="email">Email:</label>
-                        <input 
-                            type="email" 
-                            id="email" 
-                            name={LoginFormKeys.Email} 
-                            onChange={onChange}
-                            value={values[LoginFormKeys.Email]}
-                        />
+                    <label className={styles.label} htmlFor="email">Email:</label>
+                    <input 
+                        type="email" 
+                        id="email" 
+                        className={styles.inputEmail}
+                        name={LoginFormKeys.Email} 
+                        onChange={onChange}
+                        value={values[LoginFormKeys.Email]}
+                    />
                         
-                        <label htmlFor="password">Password:</label>
-                        <input 
-                            type="password" 
-                            name={LoginFormKeys.Password} 
-                            id="password"                                                              
-                            value={values[LoginFormKeys.Password]}
-                            onChange={onChange}
-                        />      
+                    <label className={styles.label} htmlFor="password">Password:</label>
+                    <input 
+                        type="password" 
+                        className={styles.inputPassword}
+                        name={LoginFormKeys.Password} 
+                        id="password"                                                              
+                        value={values[LoginFormKeys.Password]}
+                        onChange={onChange}
+                    />      
         
-                        <input className={styles.btnSubmit} type="submit" value="Login"/>
+                    <input className={styles.btnSubmit} type="submit" value="Login"/>
         
-                        <div className={styles.clickHere}>
-                            <p>If you don't have an account click <Link to='/register'>here</Link></p>
-                        </div>
+                    <div>
+                        <p className={styles.clickHereP}>If you don't have an account click
+                            <Link to='/register' className={styles.clickHereA}> here</Link>
+                        </p>
                     </div>
-                </form>
-            </section>
-        {/* <form id="login" onSubmit={onSubmit}>
-
-            <div className="container">
-                <div className="brand-logo"></div>
-                <h1>Login</h1>
-                <label htmlFor="email">Email:</label>
-                <input 
-                    type="email"
-                    id="email" 
-                    name={loginFormKeys.EMAIL} 
-                    placeholder="Sokka@gmail.com" 
-                    onChange={onChange}
-                    value={values[loginFormKeys.EMAIL]}
-                />
-
-                <label htmlFor="login-pass">Password:</label>
-                <input 
-                    type="password"
-                    id="login-password"
-                    name={loginFormKeys.PASSWORD} 
-                    onChange={onChange}
-                    value={values[loginFormKeys.PASSWORD]}
-                />
-                <input type="submit" className="btn submit" value="Login"/>
-                <p className="field">
-                    <span>If you don't have profile click <a href="#">here</a></span>
-                </p>
-            </div>
-        </form> */}
-    </section>
+                </div>
+            </form>
+        </section>
     );
 }
