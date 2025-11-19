@@ -12,7 +12,7 @@ import Logout from "./components/logout/Logout";
 import EventEdit from "./components/event/edit/EventEdit";
 
 import Path from "./lib/paths";
-import ErrorBoundary from "./components/ErrorBoundary";
+import ErrorBoundary from "./components/error/ErrorBoundary";
 import AuthGuardGuest from "./components/guards/AuthGuardGuest";
 import AuthGuardUser from "./components/guards/AuthGuardUser";
 import Footer from "./components/footer/Footer";

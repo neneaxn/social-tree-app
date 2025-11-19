@@ -84,7 +84,7 @@ export default function EventDetails() {
 
     return (
         <div className={styles.eventDetails}>
-            <div className={styles.infoSection}>
+            <section className={styles.infoSection}>
 
                 <div className={styles.eventHeader}>
                     <img className={styles.eventImg} src={event.imageUrl} alt={event.title} />
@@ -96,33 +96,32 @@ export default function EventDetails() {
                 <p className={styles.text}>
                     {event.summary}
                 </p>
-
-                <div className={styles.counterStyle}>
-                    {guestCount} Guests Attending
-                </div>
-
-
-                <div>
+       
+                <div id="guests-info" className={styles.guestsInfo}>
+                    <p className={styles.counterStyle}>
+                        {guestCount} Guests attending
+                    </p>
+                    
                     {isOwner && (
-                    <>
                     <button
-                        className={styles.buttonStyle}
+                        className={styles.joinEventButton}
                         style={{backgroundColor: isAttending ? '#da9c55ff' : '#dde0baff'}}
                         onClick={handleAttendanceClick}
                     >
                         {buttonText}
                     </button>
-                    <div className={styles.buttonStyle}>
-                        <Link to={pathToUrl(Path.EventEdit, { eventId })} className="button">Edit</Link>
-                        <br/>
-                        <button className={styles.buttonStyle} onClick={deleteButtonClickHandler}>Delete</button>
-                    </div>
-                    </>
                     )}
                 </div>
-            </div> 
+                
 
-
+                {isOwner && <div id="event-buttons" className={styles.buttons}>
+                    <Link to={pathToUrl(Path.EventEdit, { eventId })} className={styles.editButtonStyle}>
+                        Edit
+                    </Link>
+                    <button className={styles.deleteButtonStyle} onClick={deleteButtonClickHandler}>Delete</button>
+                </div>
+                }           
+            </section> 
         </div>
     )
 }

@@ -1,4 +1,7 @@
 import { Component } from "react";
+import { Link} from "react-router-dom";
+import styles from '../error/Error.module.css'
+import Path from "../../lib/paths";
 
 export default class ErrorBoundary extends Component {
     constructor() {
@@ -22,7 +25,13 @@ export default class ErrorBoundary extends Component {
 
     render() {
         if (this.state.hasError) {
-            return <h1>404</h1>
+            return (
+                <div className={styles.errorContainer}>
+                    <h1 className={styles.errorHeadingOne}>Error!</h1>
+                    <Link to={Path.Home} className={styles.link}>Please click here and refresh your browser!</Link>
+                </div>       
+        )
+
         }
         return this.props.children;
     }

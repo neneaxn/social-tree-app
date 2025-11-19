@@ -1,9 +1,8 @@
 .eventDetails {
     display: flex;
     width: 70%;
-    margin: 100px;
+    margin: 80px;
     border-radius: 10px;
-    transition: all 0.4s;
     justify-content: center;
     font-family: Georgia, 'Times New Roman', Times, serif;
 }
@@ -40,6 +39,7 @@
     color: #555;
     font-size: 35px;
     text-align: center;
+    text-decoration: underline;
 }
 
 .type {
@@ -75,25 +75,63 @@
 }
 
 .text {
-    font-size: 35px;
+    font-size: 37px;
     color: #545454;
+    margin-bottom: 5px;
 }
 
-.buttonStyle {
+.guestsInfo {
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+}
+
+.counterStyle {
+    font-size: 30px;
+    margin-bottom: 10px;
+}
+
+.joinEventButton {
+    font-size: 25px;
+    padding: 10px;
+    border-radius: 10px;
+    margin: 20px;
+    cursor: pointer;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.joinEventButton:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px rgba(108, 100, 27, 0.5);
+}
+
+.buttons {
+    margin: 20px;
+    padding: 10px;
+    display: flex;
+}
+
+.editButtonStyle {
     padding: 12px 24px;
     font-size: 30px;
-    font-weight: 'bold';
     border-radius: 8px;
-    cursor: 'pointer';
-    transition: 'background-color 0.3s ease, transform 0.1s ease';
-    color: 'white';
+    cursor: pointer;
+    color: black;
     margin: 10px;
-    box-shadow: '0 2px 4px rgba(0, 0, 0, 0.2)';
+    text-decoration: none;
+};
+
+.deleteButtonStyle {
+    border: none;
+    font-size: 30px;
+    /* padding: 10px;
+    font-size: 100px;
+    cursor: 'pointer';
+    margin: 10px;
+    text-decoration: none; */
 };
 
 
-.counterStyle {
-    background-color: blueviolet;
-}
 
 

@@ -1,4 +1,4 @@
-.event {
+/* .event {
 
 }
 
@@ -12,8 +12,10 @@
 
 .buttons {
 
-}
+} */
 
 .moreButton {
-    
+    text-decoration: none;
+    font-size: 30px;
+    color: black;
 }

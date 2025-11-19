@@ -6,12 +6,10 @@
     padding: 20px;
     box-sizing: border-box;
     text-align: center;
-    /* background-color: transparent; */
     background: #dad0c2;
     margin: auto;
     margin-top: 50px;
     margin-bottom: 50px;
-    /* box-shadow: 0px 0px 32px 0px #32485e, -14px -14px 20px #191c21; */
 }
 
 .container {

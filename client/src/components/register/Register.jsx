@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-import Login from "../login/Login";
 import styles from './Register.module.css';
 import { useContext } from "react";
 import AuthContext from "../../contexts/authContext";
@@ -56,7 +55,7 @@ export default function Register() {
                             value={values[RegisterKeys.ConfirmPassword]}
                         />
 
-                        <input className={styles.btnSubmit} type="submit" value="Register"/>
+                        <input className={style} type="submit" value="Register"/>
 
                         <div>
                             <p className={styles.clickHereP}>If you already have an account click 
