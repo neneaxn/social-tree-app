@@ -1,9 +1,9 @@
 .eventDetails {
-    display: flex;
-    width: 70%;
-    margin: 80px;
+    display: flex; 
+    width: 70%; 
+    margin: 80px auto;   
     border-radius: 10px;
-    justify-content: center;
+    justify-content: center;    
     font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
@@ -23,32 +23,36 @@
     margin: 50px;
 }
 
+
 .detailsHeadingOne {
     text-align: center;
     color: black;
     margin-top: 5px;
     font-size: 60px;
     font-weight: 400;
-    margin-bottom: 50px;
-    
+    margin-bottom: 80px;
+    font-family:"Poppins, Arial, sans-serif";
 }
 
 .location {
     display: inline-block;
     margin-top: 25px;
     color: #555;
-    font-size: 35px;
+    font-size: 32px;
     text-align: center;
     text-decoration: underline;
+    font-weight: 700;
+    font-family: "Open Sans, Helvetica Neue, sans-serif";
 }
 
 .type {
     display: inline-block;
     color: #959595;
-    margin-top: 25px;
-    font-size: 35px;
+    margin-top: 15px;
+    font-size: 32px;
     text-align: center;
-
+    font-weight: 700;
+    
 }
 
 .eventImg {
@@ -58,7 +62,9 @@
     margin-right: 15px;
     margin-top: 20px;
     margin-bottom: 20px;
-    height: 350px;
+    width: 450px; 
+    height: 350px; 
+    object-fit: cover;    
     box-shadow: 0 0 20px -10px rgba(0, 0, 0, 0.5);
 }
 
@@ -66,6 +72,12 @@
     margin-top: 100px;
     padding: 60px;
     height: 50%;
+    line-height: 1.2;
+    font-weight: 400;
+    font-size: 35px;
+    color: #3c3a3a;
+    margin-bottom: 5px;
+    font-family: "Open Sans, Helvetica Neue, sans-serif";
 }
 
 .eventSummary {
@@ -74,64 +86,86 @@
     height: 50%;
 }
 
-.text {
-    font-size: 37px;
-    color: #545454;
-    margin-bottom: 5px;
-}
-
 .guestsInfo {
     padding: 10px;
     display: flex;
     justify-content: center;
-    font-family:Georgia, 'Times New Roman', Times, serif;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    margin-bottom: 25px;
 }
 
 .counterStyle {
     font-size: 30px;
     margin-bottom: 10px;
+    font-family: "Open Sans, Helvetica Neue, sans-serif";
 }
 
 .joinEventButton {
     font-size: 25px;
     padding: 10px;
     border-radius: 10px;
+    border-color: #3c3a3a;
     margin: 20px;
+    margin-left: 30px;
     cursor: pointer;
-    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-family: "Georgia, 'Times New Roman', Times, serif";
+    transition: all 0.2s ease-in-out; 
+    background-color: #A3C9A8; 
+    color: #221f1f; 
 }
 
 .joinEventButton:hover {
-  transform: scale(1.05);
-  box-shadow: 0 0 20px rgba(108, 100, 27, 0.5);
+    transform: scale(1.05);
+    box-shadow: 0 0 20px rgba(108, 100, 27, 0.5);
 }
 
-.buttons {
+.buttonsContainer {
     margin: 20px;
     padding: 10px;
     display: flex;
+    justify-content: flex-end;
+    border: none;
+
 }
 
 .editButtonStyle {
-    padding: 12px 24px;
+    padding: 12px 30px;
     font-size: 30px;
-    border-radius: 8px;
     cursor: pointer;
     color: black;
     margin: 10px;
     text-decoration: none;
-};
+    border-radius: 8px;
+}
 
-.deleteButtonStyle {
+.editButtonStyle:hover {
+    background-color: rgba(0, 0, 0, 0.05); 
+    transform: translateY(-2px); 
+    transition: all 0.2s ease-in-out; 
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.buttonsContainer .removeButtonStyle {
     border: none;
-    font-size: 30px;
-    /* padding: 10px;
-    font-size: 100px;
-    cursor: 'pointer';
-    margin: 10px;
-    text-decoration: none; */
-};
+    cursor: pointer;
+    color: black;
+    border-radius: 8px;
+    padding: 12px; 
+    font-size: 30px; 
+    margin: 10px; 
+    text-align: center;
+    text-decoration: none;
+    background-color: transparent;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
 
+.buttonsContainer .removeButtonStyle:hover {
+    background-color: #e87782;
+    color: white; 
+    transform: scale(1.05); 
+    transition: all 0.2s ease-in-out; 
+    box-shadow: 0 0 10px rgba(240, 76, 93, 0.6); 
+}
 
 
 

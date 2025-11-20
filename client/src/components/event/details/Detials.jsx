@@ -9,7 +9,7 @@ import pathToUrl from '../../../utils/pathToUrl'
 
 export default function EventDetails() {
     const navigate = useNavigate();
-    const { email, userId } = useContext(AuthContext);
+    const { isAuthenticated, email, userId } = useContext(AuthContext);
     const { eventId } = useParams();
     const [ event, setEvent ] = useState({});
     //TODO
@@ -102,7 +102,7 @@ export default function EventDetails() {
                         {guestCount} Guests attending
                     </p>
                     
-                    {isOwner && (
+                    {(isAuthenticated && !isOwner) && (
                     <button
                         className={styles.joinEventButton}
                         style={{backgroundColor: isAttending ? '#da9c55ff' : '#dde0baff'}}
@@ -114,12 +114,16 @@ export default function EventDetails() {
                 </div>
                 
 
-                {isOwner && <div id="event-buttons" className={styles.buttons}>
-                    <Link to={pathToUrl(Path.EventEdit, { eventId })} className={styles.editButtonStyle}>
-                        Edit
-                    </Link>
-                    <button className={styles.deleteButtonStyle} onClick={deleteButtonClickHandler}>Delete</button>
-                </div>
+                {isOwner && (
+                    <div id="event-buttons" className={styles.buttonsContainer}>
+                        <Link to={pathToUrl(Path.EventEdit, { eventId })} className={styles.editButtonStyle}>
+                            Edit
+                        </Link>
+
+                        <button className={styles.removeButtonStyle} onClick={deleteButtonClickHandler}>
+                            Delete
+                        </button>
+                    </div>)
                 }           
             </section> 
         </div>

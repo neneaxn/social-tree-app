@@ -10,9 +10,45 @@ export default function Navigation() {
     } = useContext(AuthContext);
 
     return(
-        <>
 
         <header className={styles.header}>
+            <nav className={styles.navigation}>
+                
+                <div className={styles.navLeft}>
+                    <Link to="/" className={styles.headerNavTags}>Social tree</Link>
+                </div>
+
+                <div className={styles.navCenter}>
+                    <Link to="/events" className={styles.headerNavTags}>All events</Link>
+                    {isAuthenticated && (
+                        <Link to="/create" className={styles.headerNavTags}>Add Event</Link>
+                    )}
+                </div>
+
+                <div className={styles.navRight}>
+                    {isAuthenticated ?
+                        (
+                            <>
+                                <Link to="/logout" className={styles.headerNavTags}>Logout</Link>
+                                <span className={styles.welcomeUser}>{`| Welcome, ${email}!`}</span>
+                            </>
+                        )
+                        :
+                        ( 
+                            <>
+                                <Link to="/login" className={styles.headerNavTags}>Login</Link>
+                                <Link to="/register" className={styles.headerNavTags}>Register</Link>
+                            </> 
+                        )
+                    }
+                </div>
+            </nav>
+        </header>
+    );
+}
+
+
+        {/* <header className={styles.header}>
             <nav className={styles.navigation}>
                 <Link to="/" className={styles.headerNavTags}>Social tree</Link>
                 <Link to="/events" className={styles.headerNavTags}>All events</Link>
@@ -33,7 +69,4 @@ export default function Navigation() {
                 )}
 
             </nav>
-        </header>
-        </>
-    );
-}
+        </header> */}

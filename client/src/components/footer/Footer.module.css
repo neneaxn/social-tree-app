@@ -1,7 +1,72 @@
 .footer {
-    color: aliceblue;
-    padding: 40px;
-    text-align: center;
-    font-size: 30px;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #313741; 
+    width: 100%;
+    padding: 25px 0;
+    font-family: 'Lato', sans-serif;
+    color: #FFFAF0; 
+}
+
+.footerContent {
+    display: flex;
+    justify-content: space-around; 
+    align-items: flex-start; 
+    max-width: 2500px; 
+    margin: 0 auto; 
+    padding: 0 40px; 
+}
+
+.footerSection {
+    flex: 1; 
+    min-width: 200px; 
+    text-align: center; 
+}
+
+.footerLogo {
+    font-family: 'Playfair Display', serif; 
+    font-size: 2.2em;
+    font-weight: 700;
+    margin-bottom: 5px;
+}
+
+.copyright {
+    font-size: 0.9em;
+    opacity: 0.7;
+}
+
+.footerHeading {
+    font-size: 1.2em;
+    font-weight: 700;
+    margin-bottom: 15px;
+    color: #FFFAF0;
+}
+
+.footerLink {
+    display: block; 
+    color: #F4F4F4;
+    text-decoration: none;
+    margin-bottom: 10px;
+    font-size: 1em;
+    transition: color 0.2s;
+}
+
+.footerLink:hover {
+    color: #C0C0C0;
+}
+
+
+.socialIcons {
+    margin-top: 15px;
+}
+
+
+.socialIcon {
+    font-size: 1.5em; 
+    color: #F4F4F4; 
+    margin: 0 10px;
+    transition: color 0.2s, transform 0.2s; 
+}
+
+.socialIcon:hover {
+    color: #D4AF37; 
+    transform: translateY(-3px);
 }

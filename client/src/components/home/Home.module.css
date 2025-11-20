@@ -1,70 +1,65 @@
 .homePage {
-    width: auto;
-    padding-right: 15px;
-    padding-top: 7em;
-    justify-content: right;
-    padding-left: 15px;
-    position: relative;
-    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;    
+    padding-top: 5em; 
+    padding-bottom: 5em;
+    min-height: calc(100vh - 200px);
     text-align: center;
 }
 
 .welcome {
-    display: inline-block;
     z-index: 999;
-    margin: 0 auto;
-    left: 0;
-    top: 40%;
+    margin: 0 auto 3em; 
     text-align: center;
-    width: 30%;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    width: 90%; 
+    max-width: 1400px;
+    display: block; 
 }
 
 .headingOne {
-    color: white;
-    font-size: 100%;
-    font-size: 55px;
-    line-height: 1;
+    color: #dac4ae;
+    font-size: 4.5rem; 
+    line-height: 1.1;
     font-weight: 700;
-    letter-spacing: normal;
-    word-spacing: normal;
-    text-transform: uppercase;
-    text-shadow: 0 2px 4.8px rgba(0, 0, 0, 0.3);
-    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-transform: capitalize;
+    text-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    font-family: 'Playfair Display', serif;
+    margin-bottom: 0.5em;
 }
 
 .headingTwo {
-    color: white;
-    font-size: 100%;
-    font-size: 55px;
-    line-height: 1;
+    color: #4A3F33; 
+    font-size: 2.5rem;
     font-weight: 700;
-    letter-spacing: normal;
-    word-spacing: normal;
-    text-transform: uppercase;
-    text-shadow: 0 2px 4.8px rgba(0, 0, 0, 0.3);
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Playfair Display', serif;
+    text-transform: capitalize;
+    margin-bottom: 2em;
+    text-align: center;
 }
 
 .description {
-    color: white;
-    font-size: 200%;
-    text-shadow: none;
-    line-height: 1;
-    font-weight: 700;
+    color: #ece5e5; 
+    font-size: 1.5rem;
+    line-height: 1.5;
+    font-weight: 400; 
     text-align: center;
-    letter-spacing: normal;
-    word-spacing: normal;
-    text-transform: uppercase;
-    text-shadow: 0 2px 4.8px rgba(0, 0, 0, 0.3);
-    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-shadow: none;
+    text-transform: none;
+    font-family: 'Lato', sans-serif;
+    max-width: 900px;
+    margin: 0 auto;
 }
 
-.latestEvents{
-    overflow: hidden;
-    padding: 55px;
-    height: auto;
-    width: auto;
+.latestEvents {
+    width: 90%;
+    max-width: 2500px;
+    padding: 2em 0;
+    margin: 0 0 3em 0;
+    overflow: hidden; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .noEvents {
@@ -74,23 +69,6 @@
     font-size: 60px;
     font-family: "Agency FB";
 }
-
-/* 
-.image-wrap {
-    width: 250px;
-    height: 250px;
-    display: inline-block;
-    border-radius: 50%;
-    overflow: hidden;
-    position: relative;
-    text-align: center;
-}
-
-.image-wrap>img {
-    max-width: 100%;
-}
-
-
 
 .details-btn {
     background-color: #fd5454;
@@ -110,17 +88,47 @@
 .btn.details-btn:hover {
     background-color: rgb(192, 129, 117);
     color: white;
-} */
+}
 
+.scrollingSlider {
+    display: flex;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    padding-bottom: 25px; 
+    max-width: 1260px; 
+    width: 90%; 
+    margin: 0 auto;
+    justify-content: flex-start; 
 
-/* 
-.homePage>img {
-    height: auto;
-    display: inline-block;
-    vertical-align: middle;
-    max-width: 100%;
-    margin-left: auto;
-    padding-left: auto;
-} */
+    &::-webkit-scrollbar { height: 8px; }
+    &::-webkit-scrollbar-track { background: transparent; }
+    &::-webkit-scrollbar-thumb { background-color: #4A3F33; border-radius: 3px; }
+    &::-webkit-scrollbar-thumb:hover { background-color: #6C5749; }
+    
+    scrollbar-color: #584a3b transparent;
+    scrollbar-width: thin;
+}
+
+.sliderContent {
+    display: flex; 
+    gap: 30px;
+}
+
+.staticRow {
+    display: flex;
+    overflow-x: hidden; 
+    overflow-y: hidden;
+    padding-bottom: 25px;
+    width: 100%;
+    justify-content: center;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.staticRow::-webkit-scrollbar {
+    display: none; 
+}
+
 
 

@@ -2,6 +2,8 @@ import { useState, useEffect } from 'react';
 import * as eventService from '../../services/eventsServices'
 import styles from './Home.module.css'
 import HomeEvents from './home-events/HomeEvent';
+import { Link } from 'react-router-dom';
+import UserGuide from './user-guide/UserGuide';
 
 
 export default function Home() {
@@ -26,9 +28,16 @@ export default function Home() {
                 {events.length == 0 ? 
                     (<p className={styles.noEvents}>No upcoming events!</p>) 
                 : 
-                    (events.map(event => <HomeEvents key={event._id} {...event}/>))
+                <div className={events.length > 3 ? styles.scrollingSlider : styles.staticRow}> 
+                    <div className={styles.sliderContent}> 
+                        {events.map(event => <HomeEvents key={event._id} {...event}/>)}
+                    </div>
+                </div>
                 }               
             </div>
+
+            <UserGuide/>
+            
         </section>
     );
 }

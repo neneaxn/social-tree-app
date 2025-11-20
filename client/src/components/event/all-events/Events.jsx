@@ -16,12 +16,15 @@ export default function Events() {
         <div className={styles.events}> 
             <h1 className={styles.eventsHeadingOne}>All Events</h1> 
         
-            {events.length == 0 ?
-                (<p className={styles.noEvents}>No events currently. Please come back later!</p>)
-            : 
-                (events.map(event => (<EventItem key={event._id} {...event}/>)))
-            }   
-
+            <div className={styles.eventsGridWrapper}> 
+        
+                {events.length == 0 ?
+                    (<p className={styles.noEvents}>No events currently. Please come back later!</p>)
+                : 
+                    (events.map(event => (<EventItem key={event._id} {...event}/>)))
+                } 
+        
+            </div>
         </div>
     );
 }

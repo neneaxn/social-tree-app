@@ -1,21 +1,61 @@
-/* .event {
+.event {
+    width: 400px; 
+    min-width: 400px; 
+    
+    background-color: #F4F4F4; 
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    
+    scroll-snap-align: start;
+    transition: all 0.3s ease-in-out;
+}
 
+.event:hover {
+    transform: translateY(-5px); 
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.2);
 }
 
 .image {
+    width: 100%;
+    height: 240px;
+    overflow: hidden;
+}
 
+.image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 .headingTwoHomeEvent {
-
+    color: #4A3F33; 
+    font-size: 2rem;
+    font-family: 'Playfair Display', serif;
+    text-align: center;
+    padding: 15px 10px 5px;
 }
 
 .buttons {
-
-} */
+    padding: 10px 0 20px;
+    text-align: center;
+}
 
 .moreButton {
+    background-color: #4A3F33; 
+    color: #FFFAF0; 
+    padding: 10px 20px;
+    border-radius: 6px;
     text-decoration: none;
-    font-size: 30px;
-    color: black;
+    font-family: 'Lato', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    transition: all 0.2s;
+    display: inline-block;
+}
+
+.moreButton:hover {
+    background-color: #6C5749;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
 }
