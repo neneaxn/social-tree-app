@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import * as eventService from '../../services/eventsServices'
 import styles from './Home.module.css'
 import HomeEvents from './home-events/HomeEvent';
-import { Link } from 'react-router-dom';
+import Values from './values/Values';
 import UserGuide from './user-guide/UserGuide';
 
 
@@ -21,6 +21,8 @@ export default function Home() {
                 <h1 className={styles.headingOne}>Welcome to our community!</h1>
                 <p className={styles.description}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure, recusandae et. </p>
             </div>
+
+            <Values/>
 
             <div className={styles.latestEvents}>
                 <h2 className={styles.headingTwo}>Our events</h2>
