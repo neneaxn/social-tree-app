@@ -3,10 +3,10 @@
     max-width: 1400px;
     margin: 5em auto; 
     padding: 60px 20px;
-    
-    background-color: #F8F8F8;
+    background-color: #FFFFFF;
     border-radius: 10px;
-    
+    border: 1px solid #EDEDED;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.03);
     display: flex;
     justify-content: space-around; 
     gap: 40px;

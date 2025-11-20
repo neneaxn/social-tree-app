@@ -19,7 +19,8 @@ export default function Home() {
 
             <div className={styles.welcome}>
                 <h1 className={styles.headingOne}>Welcome to our community!</h1>
-                <p className={styles.description}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure, recusandae et. </p>
+                <p className={styles.description}>Discover and create meaningful gatherings, from professional workshops to passionate hobby groups. 
+    Your next great connection starts here. </p>
             </div>
 
             <Values/>

@@ -2,14 +2,14 @@ body {
     width: 100%;
     margin: 0;
     padding: 0;
-    background: url("../images/background.jpg");
+    background-color: #F9F7F5;
     background-repeat:inherit;
     background-size: cover;
 }
 
 
 .header {
-    background-color: #313741;
+    background-color: #3b3126; 
     width: 100%; 
     height: 90px;
     position: relative;
@@ -29,13 +29,14 @@ body {
     justify-content: space-between;
     align-items: center;
     font-size: 25px;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Playfair Display', serif;
 }
 
 
 .navLeft {
     font-weight: bold;
     font-size: 1.2em;
+    font-family: 'Playfair Display', serif;
 }
 
 .navCenter {
@@ -53,16 +54,19 @@ body {
     color: white;
     text-decoration: none;
     transition: color 0.2s, font-weight 0.2s; 
+    font-family: 'Playfair Display', serif;
+    font-weight: 600;
+    font-size: 1.1em;
 }
 
 .headerNavTags:hover {
     cursor: pointer;
-    color: rgb(138, 191, 198);
+    color: rgb(198, 183, 138);
     font-weight: 700;
 }
 
 .welcomeUser {
-    color: rgb(237, 237, 203);
+    color: #ebe0d1;
 }
 
 

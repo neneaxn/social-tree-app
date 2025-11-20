@@ -29,7 +29,7 @@
     font-size: 75px; 
     font-family: 'Playfair Display', serif; 
     font-weight: 700;  
-    color: #cfc0af; 
+    color: #4A3F33; 
     margin: 80px auto 40px;
     letter-spacing: 2px; 
     text-align: center; 
@@ -38,7 +38,7 @@
 
 .noEvents {
     font-size: 70px;
-    color: rgb(197, 227, 150);
+    color: rgb(116, 97, 80);
     margin: 200px auto; 
     text-align: center;
     grid-column: 1 / -1; 

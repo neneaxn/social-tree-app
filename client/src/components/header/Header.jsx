@@ -15,7 +15,7 @@ export default function Navigation() {
             <nav className={styles.navigation}>
                 
                 <div className={styles.navLeft}>
-                    <Link to="/" className={styles.headerNavTags}>Social tree</Link>
+                    <Link to="/" className={styles.headerNavTags}>Social Tree</Link>
                 </div>
 
                 <div className={styles.navCenter}>
