@@ -29,12 +29,12 @@
 }
 
 .copyright {
-    font-size: 0.9em;
+    font-size: 1.1em;
     opacity: 0.7;
 }
 
 .footerHeading {
-    font-size: 1.2em;
+    font-size: 1.4em;
     font-weight: 700;
     margin-bottom: 15px;
     color: #FFFAF0;
@@ -45,7 +45,7 @@
     color: #F4F4F4;
     text-decoration: none;
     margin-bottom: 10px;
-    font-size: 1em;
+    font-size: 1.2em;
     transition: color 0.2s;
 }
 
@@ -60,7 +60,7 @@
 
 
 .socialIcon {
-    font-size: 1.5em; 
+    font-size: 1.7em; 
     color: #F4F4F4; 
     margin: 0 10px;
     transition: color 0.2s, transform 0.2s; 

@@ -3,6 +3,8 @@ const Path = {
     Login: '/login',
     Register: '/register',
     Logout: '/logout',
+    About: '/about',
+    Contacts: '/contact',
     AllEvents: '/events',
     CreateEvent: '/create',
     EventEdit: '/events/:eventId/edit',

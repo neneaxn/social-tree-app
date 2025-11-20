@@ -1,4 +1,4 @@
-.ctaBlock {
+.block {
     width: 90%;
     max-width: 1400px;
     padding: 60px 40px;
@@ -11,7 +11,7 @@
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
 }
 
-.ctaHeading {
+.heading {
     font-family: 'Playfair Display', serif;
     font-size: 3rem;
     color: #FFFAF0; 
@@ -19,49 +19,49 @@
     line-height: 1.2;
 }
 
-.ctaSubtext {
+.subtext {
     font-family: 'Lato', sans-serif;
-    font-size: 1.3rem;
+    font-size: 1.5rem;
     color: rgba(255, 250, 240, 0.8); 
     margin-bottom: 2em;
 }
 
-.ctaButtons {
+.buttons {
     display: flex;
     justify-content: center;
     gap: 30px;
 }
 
-.ctaButton {
+.button {
     padding: 15px 30px;
     border-radius: 8px;
     text-decoration: none;
     font-family: 'Lato', sans-serif;
     font-weight: 700;
-    font-size: 1.1rem;
+    font-size: 1.3rem;
     transition: all 0.2s ease-in-out;
 }
 
 
-.primaryCta {
+.primary {
     background-color: #FFFAF0; 
     color: #4A3F33; 
     border: 2px solid #FFFAF0;
 }
 
-.primaryCta:hover {
+.primary:hover {
     background-color: #E0E0E0;
     transform: translateY(-2px);
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
-.secondaryCta {
+.secondary {
     background-color: transparent;
     color: #FFFAF0; 
     border: 2px solid #FFFAF0;
 }
 
-.secondaryCta:hover {
+.secondary:hover {
     background-color: #6C5749;
     color: #FFFAF0;
     transform: translateY(-2px);

@@ -2,6 +2,7 @@ import { useContext } from 'react';
 import styles from './Header.module.css'
 import { Link } from 'react-router-dom';
 import AuthContext from '../../contexts/authContext';
+import Path from '../../lib/paths';
 
 export default function Navigation() {
     const {
@@ -15,21 +16,23 @@ export default function Navigation() {
             <nav className={styles.navigation}>
                 
                 <div className={styles.navLeft}>
-                    <Link to="/" className={styles.headerNavTags}>Social Tree</Link>
+                    <Link to={Path.Home} className={styles.headerNavTags}>Social Tree</Link>
                 </div>
 
                 <div className={styles.navCenter}>
-                    <Link to="/events" className={styles.headerNavTags}>All events</Link>
+                    <Link to={Path.About} className={styles.headerNavTags}>About</Link>
+                    <Link to={Path.AllEvents} className={styles.headerNavTags}>All events</Link>                                      
                     {isAuthenticated && (
-                        <Link to="/create" className={styles.headerNavTags}>Add Event</Link>
+                        <Link to={Path.CreateEvent} className={styles.headerNavTags}>Add Event</Link>
                     )}
+                    <Link to={Path.Contacts} className={styles.headerNavTags}>Contacts</Link>
                 </div>
 
                 <div className={styles.navRight}>
                     {isAuthenticated ?
                         (
                             <>
-                                <Link to="/logout" className={styles.headerNavTags}>Logout</Link>
+                                <Link to={Path.Logout} className={styles.headerNavTags}>Logout</Link>
                                 <span className={styles.welcomeUser}>{`| Welcome, ${email}!`}</span>
                             </>
                         )
