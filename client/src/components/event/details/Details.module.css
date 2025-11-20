@@ -12,7 +12,7 @@
     width: 70%;
     height: 100%;
     border-radius: 10px;
-    background-color: rgb(234, 231, 217);
+    background-color: rgb(232, 230, 223);
 }
 
 .eventHeader {
@@ -110,7 +110,6 @@
     cursor: pointer;
     font-family: "Georgia, 'Times New Roman', Times, serif";
     transition: all 0.2s ease-in-out; 
-    background-color: #A3C9A8; 
     color: #221f1f; 
 }
 

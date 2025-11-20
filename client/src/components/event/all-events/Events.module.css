@@ -12,6 +12,7 @@
     row-gap: 80px;
     max-width: 2500px;
     justify-items: center; 
+    margin-bottom: 80px;
 }
 
 .eventsGridWrapper {
@@ -38,8 +39,9 @@
 
 .noEvents {
     font-size: 70px;
-    color: rgb(116, 97, 80);
+    color: #7f6e5c; 
     margin: 200px auto; 
     text-align: center;
     grid-column: 1 / -1; 
+    font-family: 'Playfair Display', serif; 
 }

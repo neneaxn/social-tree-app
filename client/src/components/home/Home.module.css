@@ -77,11 +77,11 @@
 }
 
 .noEvents {
-    color: white;
+    color: #7f6e5c; 
     text-align: center;
     font-weight: 700;
     font-size: 60px;
-    font-family: "Agency FB";
+    font-family: 'Playfair Display', serif; 
 }
 
 .details-btn {

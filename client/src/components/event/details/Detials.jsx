@@ -105,7 +105,7 @@ export default function EventDetails() {
                     {(isAuthenticated && !isOwner) && (
                     <button
                         className={styles.joinEventButton}
-                        style={{backgroundColor: isAttending ? '#da9c55ff' : '#dde0baff'}}
+                        style={{backgroundColor: isAttending ? '#9c8b77ff' : '#d4d0b4ff'}}
                         onClick={handleAttendanceClick}
                     >
                         {buttonText}

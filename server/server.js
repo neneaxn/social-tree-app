@@ -1392,18 +1392,6 @@
     			_createdOn: 1613551388703
     		}
     	},
-    	events: {
-    		"051d9eeb-914c-45e5-adc6-dabebc972cfc": {
-    			_ownerId: "35c62d76-8152-4626-8712-eeb96381bea8",
-                type: "Leisure",
-                title: "Wine tasting",
-                location: "Sofia, 19 Tsar Asen St.",
-    			imageUrl: "https://www.foodandwine.com/thmb/i3ppax3dzfKhybD3SuxsZSVHW9E=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/the-antler-room-natural-wine-bars-FT-SS1018-c1625c58d9aa4fd08c0216b6a84a6863.jpg",
-    			summary: "Treat yourself or a loved one to a wine tasting and get to know traditional Bulgarian varieties, served with delicious delicacies and sweet stories in the centre of Sofia.\nThe duration of the tasting is 1 hour, and afterwards you can stay and order any of the wines by the glass or bottle, as well as purchase them to take home.\nWine tastings are held every day except Sunday at the indicated times - 2 pm, 3:30 pm and 5 pm.\n\n\nPrice: 94 BGN for two people.",
-    			_createdOn: 1763564858244,
-                _id: "051d9eeb-914c-45e5-adc6-dabebc972cfc",
-    		},
-    	},
     	comments: {
     		"0a272c58-b7ea-4e09-a000-7ec988248f66": {
     			_ownerId: "35c62d76-8152-4626-8712-eeb96381bea8",

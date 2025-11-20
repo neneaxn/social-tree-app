@@ -55,7 +55,7 @@ export default function Register() {
                             value={values[RegisterKeys.ConfirmPassword]}
                         />
 
-                        <input className={style} type="submit" value="Register"/>
+                        <input className={styles.btnSubmit} type="submit" value="Register"/>
 
                         <div>
                             <p className={styles.clickHereP}>If you already have an account click 
