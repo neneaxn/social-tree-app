@@ -7,6 +7,7 @@ import AuthContext from "../../../contexts/authContext";
 import Path from "../../../lib/paths";
 import pathToUrl from '../../../utils/pathToUrl'
 import EventNotFound from "../../error/event-not-found/EventNotFound";
+import Loading from "../../loading/Loading";
 
 export default function EventDetails() {
     const navigate = useNavigate();
@@ -20,6 +21,7 @@ export default function EventDetails() {
     const [isLoading, setIsLoading] = useState(true);
     const [isCheckingAttendance, setIsCheckingAttendance] = useState(false); //for Join button purposes
 
+    //event data
     useEffect(() => {
         eventService.getOne(eventId)
             .then(eventData => {
@@ -110,18 +112,12 @@ export default function EventDetails() {
 
     //message while data is loading
     if (isLoading) {
-        return (
-            <div className={styles.eventDetails}>
-                <p className={styles.detailsHeadingOne}>Loading Event Details...</p>
-            </div>
-        ); 
+        return <Loading/>
     }
 
     //in case of non-existing event
     if (!event || !event._id) {
-        return (
-            <EventNotFound/>
-        );
+        return <EventNotFound/>
     }
 
     return (
@@ -138,7 +134,7 @@ export default function EventDetails() {
                 </div>
 
                 <p className={styles.text}>
-                    {event.summary}
+                    {event.description}
                 </p>
 
                 {/* attendance info */}

@@ -11,7 +11,7 @@ export default function EventEdit() {
         title: '',
         location: '',
         imageUrl: '',
-        summary: '',
+        description: '',
     });
 
     useEffect(() => {
@@ -27,7 +27,7 @@ export default function EventEdit() {
         const values = Object.fromEntries(new FormData(e.currentTarget));
         try {
             await eventService.edit(eventId, values);
-            navigate('/events');
+            navigate(`/events/${eventId}`);
         } catch (err) {
             console.log(err.message);     
         }
@@ -92,13 +92,13 @@ export default function EventEdit() {
                         placeholder="Show us!"
                     />
 
-                    <label className={styles.label} htmlFor="summary">Summary:</label>
+                    <label className={styles.label} htmlFor="description">Description:</label>
                     <textarea 
-                        name="summary" 
-                        id="summary"
+                        name="description" 
+                        id="description"
                         className={styles.textarea}
                         onChange={onChange}
-                        value={event.summary}
+                        value={event.description}
                         placeholder="Tell us more about the event...">
                     </textarea>
 

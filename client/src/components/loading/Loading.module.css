@@ -1,0 +1,18 @@
+.loading {
+    display: flex; 
+    width: 70%; 
+    margin: 80px auto;   
+    border-radius: 10px;
+    justify-content: center;    
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.HeadingOne {
+    text-align: center;
+    color: black;
+    margin-top: 5px;
+    font-size: 60px;
+    font-weight: 400;
+    margin-bottom: 80px;
+    font-family:"Poppins, Arial, sans-serif";
+}

@@ -9,10 +9,9 @@ export default function Create() {
         e.preventDefault();
 
         const eventData = Object.fromEntries(new FormData(e.currentTarget));
-        // eventData['initialGuests'] = 0
+
         try {
-            const result = await eventService.create(eventData);
-            
+            await eventService.create(eventData);       
             navigate('/events');
         } catch (err) {
             console.log(err.message);     
@@ -42,8 +41,8 @@ export default function Create() {
                     <label className={styles.label} htmlFor="imageUrl">Image:</label>
                     <input className={styles.inputText} type="text" id="imageUrl" name="imageUrl" placeholder="Show us!"/>
 
-                    <label className={styles.label} htmlFor="summary">Summary:</label>
-                    <textarea name="summary" id="summary" placeholder="Tell us more about the event..." className={styles.textarea}></textarea>
+                    <label className={styles.label} htmlFor="description">Description:</label>
+                    <textarea name="description" id="description" placeholder="Tell us more about the event..." className={styles.textarea}></textarea>
                     <input className={styles.btnSubmit} type="submit" value="Submit"/>
                 </div>
             </form>
