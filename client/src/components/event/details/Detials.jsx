@@ -6,6 +6,7 @@ import styles from '../details/Details.module.css'
 import AuthContext from "../../../contexts/authContext";
 import Path from "../../../lib/paths";
 import pathToUrl from '../../../utils/pathToUrl'
+import EventNotFound from "../../error/event-not-found/EventNotFound";
 
 export default function EventDetails() {
     const navigate = useNavigate();
@@ -119,9 +120,7 @@ export default function EventDetails() {
     //in case of non-existing event
     if (!event || !event._id) {
         return (
-            <div className={styles.eventDetails}>
-                <p className={styles.detailsHeadingOne}>Event Not Found.</p>
-            </div>
+                <EventNotFound/>
         );
     }
 
