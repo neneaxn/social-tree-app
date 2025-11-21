@@ -17,7 +17,7 @@ export default function Values() {
                 </div>
                 
                 <div className={styles.valueCard}>
-                    <div className={styles.valueIcon}>🚀</div> 
+                    <div className={styles.valueIcon}>✨</div> 
                     <h4 className={styles.valueHeading}>Join With a Click</h4>
                     <p className={styles.valueText}>No complicated sign-ups. View event details and secure your spot instantly with simple, one-click access.</p>
                 </div>

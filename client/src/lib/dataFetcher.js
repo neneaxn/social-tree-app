@@ -30,11 +30,17 @@ const request = async (method, url, data) => {
         return {};
     }
 
-    const result = await response.json();    
-
-    if (!response.ok){
-        throw result;
+    if (!response.ok) {
+        let errorBody = {};
+        try {
+            errorBody = await response.json();
+        } catch (e) {
+            throw { message: `Server error (${response.status}): Could not parse error response.` };
+        }
+        throw errorBody;
     }
+
+    const result = await response.json();
 
     return result;
 }

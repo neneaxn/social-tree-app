@@ -4,21 +4,11 @@ const baseUrl = 'http://localhost:3030/data/attendances';
 
 
 export const getCount = async (eventId) => {
-    const query = new URLSearchParams({
-        where: `eventId="${eventId}"`,
-        // load: `owner:=_ownerId:users`
-    })
-
-    const result = await request.get(`${baseUrl}?${query}`);
-    
-    // const result = await request.get(baseUrl);
-    // console.log(result);
-    
-    // const returned = Object.values(result).filter(e => e.eventId === eventId);
-    // console.log(returned);
-    // console.log(returned.length);
-    
-    return result.length;
+    const where = `eventId="${eventId}"`;
+    //combines where and count; returns a number
+    const url = `${baseUrl}?where=${encodeURIComponent(where)}&count`;
+    const result = await request.get(url);
+    return result; 
 }
 
 export const add =  async (eventId) => {
@@ -27,24 +17,15 @@ export const add =  async (eventId) => {
     return newAttendance;
 };
 
-export const remove =  async (eventId) => {
-    const newAttendance = await request.remove(baseUrl);
+export const remove =  async (attendanceId) => request.remove(`${baseUrl}/${attendanceId}`);
+
+export const getByUserAndEvent = async (eventId, userId) => {
+    const where = `eventId="${eventId}" AND _ownerId="${userId}"`;
+    const url = `${baseUrl}?where=${encodeURIComponent(where)}`;
+
+    const result = await request.get(url);
+    console.log(result);
     
-    return newAttendance;
-};
-
-// export const update = async(eventId, newData) => {
-//     const result = await request.put(`${baseUrl}/${eventId}`, newData);
-
-//     return result;
-// }
-
-
-// export const counter = async (eventId) => {
-//     const newAttendance = await request.post(baseUrl, {
-//         eventId,
-//         counter
-//     });
-
-//     return newAttendance;
-// };
+    //!!server returns an array:
+    return result[0] || null;
+}

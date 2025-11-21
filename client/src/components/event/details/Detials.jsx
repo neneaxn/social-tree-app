@@ -9,83 +9,122 @@ import pathToUrl from '../../../utils/pathToUrl'
 
 export default function EventDetails() {
     const navigate = useNavigate();
-    const { isAuthenticated, email, userId } = useContext(AuthContext);
+    const { isAuthenticated, userId } = useContext(AuthContext);
     const { eventId } = useParams();
     const [ event, setEvent ] = useState({});
-    //TODO
+    const [ currentAttendanceRecord, setCurrentAttendanceRecord ] = useState(null);
     const [ guestCount, setGuestCount ] = useState(0);
-    const [ isAttending, setIsAttending ] = useState(false);
-    
+    const isAttending = currentAttendanceRecord !== null;
+
+    const [isLoading, setIsLoading] = useState(true);
+    const [isCheckingAttendance, setIsCheckingAttendance] = useState(false); //for Join button purposes
     
     useEffect(() => {
-        eventService.getOne(eventId)
-            .then(event => setEvent(event))
-        //check this 
-        attendanceService.getCount(eventId)
-            .then(res => setGuestCount(res))
-            .catch(err => console.log(`${err.message}: attendances`))
+        Promise.all([
+            eventService.getOne(eventId), //get current event
+            attendanceService.getCount(eventId) //get attendances of this specific event if any
+        ])
+        .then(([eventData, countData]) => {
+            setEvent(eventData);
+            setGuestCount(countData);
+        })
+        .catch(err => {
+            console.error("Loading data Error:", err);
+        })
+        .finally(() => setIsLoading(false));
     }, [eventId]);
-    
+
+    //attendance data
+    useEffect(() => {
+        if (userId) {
+            setIsCheckingAttendance(true);
+
+            attendanceService.getByUserAndEvent(eventId, userId)
+                .then(attendance => {
+                    setCurrentAttendanceRecord(attendance);
+                })
+                .catch(err => {
+                    console.error('Error fetching user attendance:', err);
+                    setCurrentAttendanceRecord(null); 
+                })
+                .finally(() => {
+                    setIsCheckingAttendance(false); //for Join button
+                });
+        } else {
+            // reset state in case the user logged-out
+            setCurrentAttendanceRecord(null);
+        }
+    }, [eventId, userId]);
+
+
     const handleAttendanceClick = async () => {
-        const newIsAttanding = !isAttending;
-        const method = newIsAttanding ? 'POST' : 'DELETE';
+        
+        if (!isAuthenticated) return navigate(Path.Login);
+
+        const isJoining = !isAttending;
 
         try {
-            if (method == 'POST') {
-                //also add attendance count to event id
+            if (isJoining) {
                 const res = await attendanceService.add(eventId);
-                console.log('added');
-                
+                setCurrentAttendanceRecord(res);
+                setGuestCount(count => count + 1);          
             } else {
-                //data/attendances/_id
-                //remove attendance to event id
-                attendanceService.remove(eventId) //attandanceId
-                console.log('removed');    
+                const attendanceId = currentAttendanceRecord?._id;
+                
+                if (attendanceId) {
+                    await attendanceService.remove(attendanceId);
+                    setCurrentAttendanceRecord(null);
+                    setGuestCount(count => count - 1);
+                }
             }
         } catch(err) {
-            console.log(err.message);            
+            console.error('Attendance action failed: ', err); 
         }
-
-        if (newIsAttanding) {
-            setGuestCount(count => count + 1)
-        } else {
-            setGuestCount(count => count - 1)
-        };
-
-        setIsAttending(newIsAttanding)
-        
-        // if (isAttending) {
-        //     setGuestCount(prevCount => prevCount - 1);
-        //     const newCount = guestCount - 1
-        //     const newData = { eventId, counter: newCount };
-        //     attendanceService.update(eventId, newData);      
-        //     setIsAttending(false);
-        // } else {
-        //     setGuestCount(prevCount => prevCount + 1);
-        //     const newCount = guestCount + 1;
-        //     const newData = { eventId, counter: newCount };
-        //     attendanceService.update(eventId, newData);     
-        //     setIsAttending(true);
-
-        // setIsAttending(!isAttending);
     };
+    
 
     const deleteButtonClickHandler = async () => {
-            const hasConfirmed = confirm(`Are you sure you want to delete ${event.title}?`);
-            
-            if (hasConfirmed) {
-                await eventService.remove(eventId)
-                navigate('/events')
+        const hasConfirmed = confirm(`Are you sure you want to delete ${event.title}?`);
+
+        if (hasConfirmed) {
+            try{
+                await eventService.remove(eventId);
+                navigate('/events');
+            } catch (err) {
+                console.log("Deletion failed: ", err);
+                alert("Failed to delete the event. Please try again."); 
             }
+        }
     }
+
 
     const buttonText = isAttending ? "Unsubscribe" : "Join Event";
     const isOwner = userId === event._ownerId;
 
+    //message while data is loading
+    if (isLoading) {
+        return (
+            <div className={styles.eventDetails}>
+                <p className={styles.detailsHeadingOne}>Loading Event Details...</p>
+            </div>
+        ); 
+    }
+
+    //in case of non-existent event
+    if (!event || !event._id) {
+        return (
+            <div className={styles.eventDetails}>
+                <p className={styles.detailsHeadingOne}>Event Not Found.</p>
+            </div>
+        );
+    }
+
     return (
+
         <div className={styles.eventDetails}>
             <section className={styles.infoSection}>
 
+                {/* event details */}
                 <div className={styles.eventHeader}>
                     <img className={styles.eventImg} src={event.imageUrl} alt={event.title} />
                     <h1 className={styles.detailsHeadingOne}>{event.title}</h1>
@@ -96,24 +135,28 @@ export default function EventDetails() {
                 <p className={styles.text}>
                     {event.summary}
                 </p>
-       
+
+                {/* attendance info */}
                 <div id="guests-info" className={styles.guestsInfo}>
                     <p className={styles.counterStyle}>
                         {guestCount} Guests attending
                     </p>
                     
+                    {/* Join functionality */}
                     {(isAuthenticated && !isOwner) && (
                     <button
                         className={styles.joinEventButton}
                         style={{backgroundColor: isAttending ? '#9c8b77ff' : '#d4d0b4ff'}}
                         onClick={handleAttendanceClick}
+                        disabled={isCheckingAttendance}
                     >
                         {buttonText}
                     </button>
                     )}
+
                 </div>
                 
-
+                {/* editing permissions */}
                 {isOwner && (
                     <div id="event-buttons" className={styles.buttonsContainer}>
                         <Link to={pathToUrl(Path.EventEdit, { eventId })} className={styles.editButtonStyle}>
