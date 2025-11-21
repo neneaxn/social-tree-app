@@ -10,7 +10,7 @@
     font-family: "Poppins, Arial, sans-serif";
 }
 
-.EventNotFound {
+.headingOne {
     text-align: center;
     color: #41382a;
     font-weight: 700; 
@@ -18,3 +18,15 @@
     margin: 0; 
     padding-bottom: 20px;
 }
+
+.info {
+    color: #41382a;
+    font-size: 30px;
+}
+
+.eventBtn {
+    font-weight: 700;
+    text-decoration: none;
+    color: #41382a;
+}
+
