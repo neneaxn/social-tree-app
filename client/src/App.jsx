@@ -18,6 +18,7 @@ import Path from "./lib/paths";
 import ErrorBoundary from "./components/error/ErrorBoundary";
 import AuthGuardGuest from "./components/guards/AuthGuardGuest";
 import AuthGuardUser from "./components/guards/AuthGuardUser";
+import PageNotFound from "./components/error/page-not-found/PageNotFound";
 
 function App() {
     return (
@@ -40,6 +41,7 @@ function App() {
                         <Route path={Path.EventEdit} element={<EventEdit />} />
                         <Route path={Path.Logout} element={<Logout />} />
                     </Route>
+                    <Route path='*' element={<PageNotFound/>}/>
                 </Routes>
                 <Footer/>
             </div>

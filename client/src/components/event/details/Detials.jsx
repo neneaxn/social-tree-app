@@ -120,7 +120,7 @@ export default function EventDetails() {
     //in case of non-existing event
     if (!event || !event._id) {
         return (
-                <EventNotFound/>
+            <EventNotFound/>
         );
     }
 
