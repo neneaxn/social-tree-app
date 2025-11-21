@@ -23,9 +23,7 @@ export const getByUserAndEvent = async (eventId, userId) => {
     const where = `eventId="${eventId}" AND _ownerId="${userId}"`;
     const url = `${baseUrl}?where=${encodeURIComponent(where)}`;
 
-    const result = await request.get(url);
-    console.log(result);
-    
+    const result = await request.get(url);    
     //!!server returns an array:
     return result[0] || null;
 }

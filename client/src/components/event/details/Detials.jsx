@@ -18,21 +18,27 @@ export default function EventDetails() {
 
     const [isLoading, setIsLoading] = useState(true);
     const [isCheckingAttendance, setIsCheckingAttendance] = useState(false); //for Join button purposes
-    
+
     useEffect(() => {
-        Promise.all([
-            eventService.getOne(eventId), //get current event
-            attendanceService.getCount(eventId) //get attendances of this specific event if any
-        ])
-        .then(([eventData, countData]) => {
-            setEvent(eventData);
-            setGuestCount(countData);
-        })
-        .catch(err => {
-            console.error("Loading data Error:", err);
-        })
-        .finally(() => setIsLoading(false));
+        eventService.getOne(eventId)
+            .then(eventData => {
+                setEvent(eventData);
+                
+                attendanceService.getCount(eventId)
+                    .then(countData => {
+                        setGuestCount(countData);
+                    })
+                    .catch(err => {
+                        console.error("Error fetching guest count (404 is fine if none exist):", err);
+                        setGuestCount(0);
+                    });
+            })
+            .catch(err => {
+                console.error("Loading data Error (Event NOT found or server error):", err);
+            })
+            .finally(() => setIsLoading(false));
     }, [eventId]);
+
 
     //attendance data
     useEffect(() => {
@@ -110,7 +116,7 @@ export default function EventDetails() {
         ); 
     }
 
-    //in case of non-existent event
+    //in case of non-existing event
     if (!event || !event._id) {
         return (
             <div className={styles.eventDetails}>

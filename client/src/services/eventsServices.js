@@ -9,15 +9,13 @@ export const getAll = async () => {
 };
 
 export const getOne = async (eventId) => {
-    const result = await request.get(`${baseUrl}/${eventId}`);
-
+    
+    const result = await request.get(`${baseUrl}/${eventId}`);    
     return result;
 }
 
 export const create = async (eventData) => {
     const result = await request.post(baseUrl, eventData);
-    
-    // createAttendance(result._id);
 
     return result;
 };
