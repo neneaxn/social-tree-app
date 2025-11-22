@@ -3,7 +3,7 @@ import styles from './Create.module.css';
 import * as eventService from "../../../services/eventsServices";
 import Path from "../../../lib/paths";
 import useForm from "../../../hooks/useForm";
-import { useState } from "react";
+import toTitleCase from "../../../utils/toTitleCase";
 
 export default function Create() {
     const navigate = useNavigate();
@@ -19,8 +19,14 @@ export default function Create() {
     const maxChars = 1000;
 
     const createEventSubmitHandler = async (values) => {
+
+        const formattedValues = {
+            ...values,
+            title: toTitleCase(values.title),
+        };
+
         try {
-            await eventService.create(values);
+            await eventService.create(formattedValues);
             navigate(Path.AllEvents);
         } catch (err) {
             console.log(err.message);

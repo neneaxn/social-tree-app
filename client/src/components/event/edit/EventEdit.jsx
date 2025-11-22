@@ -2,6 +2,7 @@ import { useNavigate, useParams} from "react-router-dom";
 import styles from './Edit.module.css';
 import * as eventService from "../../../services/eventsServices";
 import { useEffect, useState } from "react";
+import toTitleCase from "../../../utils/toTitleCase";
 
 export default function EventEdit() {
     const navigate = useNavigate();
@@ -27,8 +28,13 @@ export default function EventEdit() {
         e.preventDefault();
 
         const values = Object.fromEntries(new FormData(e.currentTarget));
+
+        const formattedValues = {
+            ...values,
+            title: toTitleCase(values.title),
+        };
         try {
-            await eventService.edit(eventId, values);
+            await eventService.edit(eventId, formattedValues);
             navigate(`/events/${eventId}`);
         } catch (err) {
             console.log(err.message);     
