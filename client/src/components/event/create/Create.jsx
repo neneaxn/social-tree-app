@@ -3,6 +3,7 @@ import styles from './Create.module.css';
 import * as eventService from "../../../services/eventsServices";
 import Path from "../../../lib/paths";
 import useForm from "../../../hooks/useForm";
+import { useState } from "react";
 
 export default function Create() {
     const navigate = useNavigate();
@@ -14,6 +15,8 @@ export default function Create() {
         imageUrl: '',
         description: '',
     };
+
+    const maxChars = 1000;
 
     const createEventSubmitHandler = async (values) => {
         try {
@@ -86,6 +89,7 @@ export default function Create() {
                         className={styles.textarea}
                         value={values.description}
                         onChange={onChange}
+                        maxLength={maxChars}
                     />
                     <input className={styles.btnSubmit} type="submit" value="Submit"/>
                 </div>

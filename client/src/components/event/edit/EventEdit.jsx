@@ -14,6 +14,8 @@ export default function EventEdit() {
         description: '',
     });
 
+    const maxChars = 1000;
+
     useEffect(() => {
         eventService.getOne(eventId)
             .then(result => {
@@ -99,7 +101,8 @@ export default function EventEdit() {
                         className={styles.textarea}
                         onChange={onChange}
                         value={event.description}
-                        placeholder="Tell us more about the event...">
+                        placeholder="Tell us more about the event..."
+                        maxLength={maxChars}>
                     </textarea>
 
                     <input className={styles.btnSubmit} type="submit" value="Submit"/>
