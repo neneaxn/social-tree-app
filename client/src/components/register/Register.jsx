@@ -33,6 +33,8 @@ export default function Register() {
                             className={styles.inputEmail}
                             onChange={onChange}
                             value={values[RegisterKeys.Email]}
+                            required
+                            maxLength={50}
                         />
                 
                         <label className={styles.label} htmlFor="password">Password:</label>
@@ -43,6 +45,9 @@ export default function Register() {
                             className={styles.inputPassword}
                             onChange={onChange}
                             value={values[RegisterKeys.Password]}
+                            required
+                            minLength={6}
+                            maxLength={30}
                         />
 
                         <label className={styles.label} htmlFor="confirm-password">Confirm Password:</label>
@@ -53,6 +58,9 @@ export default function Register() {
                             className={styles.inputPassword}
                             onChange={onChange}
                             value={values[RegisterKeys.ConfirmPassword]}
+                            required
+                            minLength={6}
+                            maxLength={30}
                         />
 
                         <input className={styles.btnSubmit} type="submit" value="Register"/>

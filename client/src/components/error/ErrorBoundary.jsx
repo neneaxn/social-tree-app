@@ -20,6 +20,7 @@ export default class ErrorBoundary extends Component {
     }
 
     componentDidCatch(error, errorInfo) {
+        console.log(error, ' ', errorInfo);
         
     }
 

@@ -20,10 +20,23 @@ export const AuthProvider = ({
     };
 
     const registerSubmitHandler = async (values) => {
-      const result = await authService.register(values.email, values.password);
-      setAuth(result);
-      localStorage.setItem('accessToken', result.accessToken);
-      navigate(Path.Home);
+
+      if (values.password !== values['confirm-password']) {
+            const passDontMatch = "Passwords don't match.";
+            alert(`Registration failed: ${passDontMatch}`)
+            throw new Error(passDontMatch);
+      }
+
+      try {
+          const result = await authService.register(values.email, values.password);
+          setAuth(result);
+          localStorage.setItem('accessToken', result.accessToken);
+          navigate(Path.Home);
+      } catch(err) {
+          alert(`Registration failed: ${err.message}`); 
+            throw err;
+      }
+
     };
 
     const logoutHandler = () => {
