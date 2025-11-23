@@ -2,6 +2,7 @@ import { useNavigate, useParams} from "react-router-dom";
 import styles from './Edit.module.css';
 import * as eventService from "../../../services/eventsServices";
 import { useEffect, useState } from "react";
+import minMaxValues from "../../../lib/minMaxFormValues";
 import toTitleCase from "../../../utils/toTitleCase";
 
 export default function EventEdit() {
@@ -15,8 +16,6 @@ export default function EventEdit() {
         description: '',
     });
 
-    const maxChars = 1000;
-
     useEffect(() => {
         eventService.getOne(eventId)
             .then(result => {
@@ -28,6 +27,12 @@ export default function EventEdit() {
         e.preventDefault();
 
         const values = Object.fromEntries(new FormData(e.currentTarget));
+
+        if (values.description.length < minMaxValues.descriptionMinLength) {
+            const error = `Description must be at least ${minMaxValues.descriptionMinLength} characters long.`;
+            alert(error)
+            throw new Error(error);
+        }
 
         const formattedValues = {
             ...values,
@@ -53,7 +58,7 @@ export default function EventEdit() {
             <form id="edit" onSubmit={editEventSubmitHandler}>
                 <div className={styles.container}>
 
-                    <h1 className={styles.editHeadingOne}>Add Your Event Here</h1>
+                    <h1 className={styles.editHeadingOne}>Edit Event</h1>
 
                     <label className={styles.label} htmlFor="type">Type:</label>
                     <select 
@@ -76,6 +81,8 @@ export default function EventEdit() {
                         value={event.title}
                         onChange={onChange} 
                         placeholder="What?"
+                        required
+                        minLength={minMaxValues.titleLocationMinLength}
                     />
 
                     <label className={styles.label} htmlFor="location">Location:</label>
@@ -87,6 +94,8 @@ export default function EventEdit() {
                         value={event.location}
                         onChange={onChange} 
                         placeholder="Where?"
+                        required
+                        minLength={minMaxValues.titleLocationMinLength}
                     />
 
                     <label className={styles.label} htmlFor="imageUrl">Image:</label>
@@ -98,6 +107,7 @@ export default function EventEdit() {
                         onChange={onChange} 
                         value={event.imageUrl}
                         placeholder="Show us!"
+                        alt={event.title}
                     />
 
                     <label className={styles.label} htmlFor="description">Description:</label>
@@ -108,8 +118,10 @@ export default function EventEdit() {
                         onChange={onChange}
                         value={event.description}
                         placeholder="Tell us more about the event..."
-                        maxLength={maxChars}>
-                    </textarea>
+                        required    
+                        maxLength={minMaxValues.descriptionMaxLength}                                      
+                        minLength={minMaxValues.descriptionMinLength}
+                    />                       
 
                     <input className={styles.btnSubmit} type="submit" value="Submit"/>
                 </div>

@@ -78,6 +78,8 @@
     color: #3c3a3a;
     margin-bottom: 5px;
     font-family: "Open Sans, Helvetica Neue, sans-serif";
+    word-wrap: break-word; 
+    overflow-wrap: break-word;
 }
 
 .eventSummary {

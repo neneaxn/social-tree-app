@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import styles from './Create.module.css';
 import * as eventService from "../../../services/eventsServices";
+import minMaxValues from "../../../lib/minMaxFormValues";
 import Path from "../../../lib/paths";
 import useForm from "../../../hooks/useForm";
 import toTitleCase from "../../../utils/toTitleCase";
@@ -16,9 +17,13 @@ export default function Create() {
         description: '',
     };
 
-    const maxChars = 1000;
-
     const createEventSubmitHandler = async (values) => {
+
+        if (values.description.length < minMaxValues.descriptionMinLength) {
+            const error = `Description must be at least ${minMaxValues.descriptionMinLength} characters long.`;
+            alert(error)
+            throw new Error(error);
+        }
 
         const formattedValues = {
             ...values,
@@ -63,6 +68,8 @@ export default function Create() {
                         placeholder="What?"
                         value={values.title}
                         onChange={onChange}
+                        required
+                        minLength={minMaxValues.titleLocationMinLength}
                     />
 
                     <label className={styles.label} htmlFor="location">Location:</label>
@@ -74,6 +81,8 @@ export default function Create() {
                         placeholder="Where?"
                         value={values.location}
                         onChange={onChange}
+                        required
+                        minLength={minMaxValues.titleLocationMinLength}
                     />
 
                     <label className={styles.label} htmlFor="imageUrl">Image:</label>
@@ -85,6 +94,7 @@ export default function Create() {
                         placeholder="Show us!"
                         value={values.imageUrl}
                         onChange={onChange}
+                        alt={values.title}
                     />
 
                     <label className={styles.label} htmlFor="description">Description:</label>
@@ -95,7 +105,9 @@ export default function Create() {
                         className={styles.textarea}
                         value={values.description}
                         onChange={onChange}
-                        maxLength={maxChars}
+                        required
+                        maxLength={minMaxValues.descriptionMaxLength}                       
+                        minLength={minMaxValues.descriptionMinLength}
                     />
                     <input className={styles.btnSubmit} type="submit" value="Submit"/>
                 </div>
