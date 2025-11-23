@@ -13,10 +13,25 @@ export const AuthProvider = ({
     const [auth, setAuth] = useLocalStorageState('auth', {});
 
     const loginSubmitHandler = async (values) => {
-      const result = await authService.login(values.email, values.password)
-      setAuth(result);
-      localStorage.setItem('accessToken', result.accessToken);
-      navigate(Path.Home);
+      const email = values.email.trim();
+      const password = values.password;
+
+      if (!email || !password) {
+          const error = "Both email and password fields are required.";
+          alert(error);
+          throw new Error(error);
+      }
+
+      try {
+          const result = await authService.login(email, password)
+          setAuth(result);
+          localStorage.setItem('accessToken', result.accessToken);
+          navigate(Path.Home);
+      } catch(err) {
+          alert(err.message);
+          throw new Error(err.message)
+      }
+
     };
 
     const registerSubmitHandler = async (values) => {

@@ -32,6 +32,7 @@ export default function Login() {
                         name={LoginFormKeys.Email} 
                         onChange={onChange}
                         value={values[LoginFormKeys.Email]}
+                        required
                     />
                         
                     <label className={styles.label} htmlFor="password">Password:</label>
@@ -42,6 +43,8 @@ export default function Login() {
                         id="password"                                                              
                         value={values[LoginFormKeys.Password]}
                         onChange={onChange}
+                        required
+                        minLength={6}
                     />      
         
                     <input className={styles.btnSubmit} type="submit" value="Login"/>
