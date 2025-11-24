@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import AuthContext from '../../contexts/authContext';
 import Path from '../../lib/paths';
 
-export default function Navigation() {
+export default function Header() {
     const {
         isAuthenticated,
         email
