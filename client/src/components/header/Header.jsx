@@ -25,7 +25,8 @@ export default function Navigation() {
                     {isAuthenticated && (
                         <Link to={Path.CreateEvent} className={styles.headerNavTags}>Add Event</Link>
                     )}
-                    <Link to={Path.Contacts} className={styles.headerNavTags}>Contacts</Link>
+                    <Link to={Path.Search} className={styles.headerNavTags}>Search</Link>
+                    <Link to={Path.Contacts} className={styles.headerNavTags}>Contacts</Link>                  
                 </div>
 
                 <div className={styles.navRight}>
@@ -49,27 +50,3 @@ export default function Navigation() {
         </header>
     );
 }
-
-
-        {/* <header className={styles.header}>
-            <nav className={styles.navigation}>
-                <Link to="/" className={styles.headerNavTags}>Social tree</Link>
-                <Link to="/events" className={styles.headerNavTags}>All events</Link>
-                {isAuthenticated ?
-                (
-                    <div id='user'>
-                        <Link to="/create" className={styles.headerNavTags}>Add Event</Link>
-                        <Link to="/logout" className={styles.headerNavTags}>Logout</Link>
-                        <span className={styles.welcomeUser}>{`| Welcome, ${email}!`}</span>
-                    </div> 
-                )
-                :
-                (   
-                    <div id='guest'>
-                        <Link to="/login" className={styles.headerNavTags}>Login</Link>
-                        <Link to="/register" className={styles.headerNavTags}>Register</Link>
-                    </div>                  
-                )}
-
-            </nav>
-        </header> */}

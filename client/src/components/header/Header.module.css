@@ -5,6 +5,9 @@ body {
     background-color: #F9F7F5;
     background-repeat:inherit;
     background-size: cover;
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
 }
 
 

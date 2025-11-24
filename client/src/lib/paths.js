@@ -1,3 +1,5 @@
+import Search from "../components/search/Search";
+
 const Path = {
     Home: '/',
     Login: '/login',
@@ -10,6 +12,7 @@ const Path = {
     EventEdit: '/events/:eventId/edit',
     EventDelete: '/events/:eventId/delete',
     EventDetails: '/events/:eventId',
+    Search: '/search',
 };
 
 export default Path;

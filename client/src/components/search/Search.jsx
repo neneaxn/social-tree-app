@@ -1,0 +1,87 @@
+import { useState } from "react";
+import Loading from "../loading/Loading";
+import EventItem from "../event/all-events/single-event/EventItem";
+import * as eventService from '../../services/eventsServices'
+import useForm from "../../hooks/useForm";
+import styles from '../search/Search.module.css'
+
+export default function Search() {
+    const [searchResults, setSearchResults] = useState([]);
+    const [isLoading, setIsLoading] = useState(false);
+    const [hasSearched, setHasSearched] = useState(false);
+
+    const SearchKeys = {
+        Search: 'search',
+    };
+
+    const searchHandler = async (values) => {
+        const query = values[SearchKeys.Search];
+        
+        if (!query.trim()) {
+            setSearchResults([]);
+            setHasSearched(false);
+            return;
+        }
+
+        setIsLoading(true);
+        try {
+            const result = await eventService.search(query);
+            setSearchResults(result);
+            setHasSearched(true);
+        } catch (err) {
+            console.error(`Search error: ${err.message}`);
+            setSearchResults([]); // Clear results on error
+            setHasSearched(true);
+        } finally {
+            setIsLoading(false);
+        }
+    };
+
+    const { values, onChange, onSubmit } = useForm(searchHandler, {
+        [SearchKeys.Search]: '',
+    });
+
+    const displayContent = () => {
+        if (isLoading) {
+            return <Loading />;
+        }
+
+        if (hasSearched && searchResults.length === 0) {
+            return (
+                <p className={styles.noEvents}>
+                    No events found matching your search term.
+                </p>
+            );
+        }
+
+        return (
+            searchResults.map(event => (
+                <EventItem key={event._id} {...event} />
+            ))
+        );
+    };
+
+    return(
+        <div className={styles.searchEvents}> 
+            <h1 className={styles.eventsHeadingOne}>Search Events</h1> 
+            
+            <form onSubmit={onSubmit} className={styles.searchForm}>
+                <input
+                    type="text"
+                    name={SearchKeys.Search}
+                    placeholder="Search by title or location..."
+                    value={values[SearchKeys.Search]}
+                    onChange={onChange}
+                    className={styles.searchInput}
+                />
+                <button type="submit" className={styles.searchButton} disabled={isLoading}>
+                    Search
+                </button>
+            </form>
+            
+            <div className={styles.eventsGridWrapper}> 
+                {displayContent()}
+            </div>
+        </div>
+    );
+}

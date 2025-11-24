@@ -13,6 +13,7 @@ import EventEdit from "./components/event/edit/EventEdit";
 import About from "./components/about/AboutUs";
 import Footer from "./components/footer/Footer";
 import Contacts from "./components/contacts/Contacts";
+import Search from "./components/search/Search";
 
 import Path from "./lib/paths";
 import ErrorBoundary from "./components/error/ErrorBoundary";
@@ -32,6 +33,7 @@ function App() {
                     <Route path={Path.EventDetails} element={<EventDetails />} />
                     <Route path={Path.About} element={<About/>}/>
                     <Route path={Path.Contacts} element={<Contacts/>}/>
+                    <Route path={Path.Search} element={<Search/>}/>
                     <Route element={<AuthGuardUser/>}>
                         <Route path={Path.Login} element={<Login />} />
                         <Route path={Path.Register} element={<Register />} />
