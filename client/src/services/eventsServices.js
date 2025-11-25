@@ -45,3 +45,14 @@ export const search = async (query) => {
 
     return result;
 };
+
+export const getByOwner = async (userId) => {
+    const where = `_ownerId="${userId}"`;
+    const url = `${baseUrl}?where=${encodeURIComponent(where)}`;
+
+    const result = await request.get(url);
+    console.log(result);
+    
+    //!!server returns an array:
+    return result;
+};

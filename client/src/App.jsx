@@ -18,6 +18,7 @@ import ErrorBoundary from "./components/error/ErrorBoundary";
 import AuthGuardGuest from "./components/guards/AuthGuardGuest";
 import AuthGuardUser from "./components/guards/AuthGuardUser";
 import PageNotFound from "./components/error/page-not-found/PageNotFound";
+import Profile from "./components/profile/Profile";
 
 import Path from "./lib/paths";
 
@@ -42,6 +43,7 @@ function App() {
                     <Route element={<AuthGuardGuest />}>
                         <Route path={Path.CreateEvent} element={<Create />} />
                         <Route path={Path.EventEdit} element={<EventEdit />} />
+                        <Route path={Path.Profile} element={<Profile />} />
                         <Route path={Path.Logout} element={<Logout />} />
                     </Route>
                     <Route path='*' element={<PageNotFound/>}/>

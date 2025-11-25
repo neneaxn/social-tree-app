@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import styles from './Header.module.css';
 import AuthContext from '../../contexts/authContext';
 import Path from '../../lib/paths';
+import Profile from '../profile/Profile';
 
 export default function Header() {
     const {
@@ -33,8 +34,10 @@ export default function Header() {
                     {isAuthenticated ?
                         (
                             <>
+                                <Link to={Path.Profile} className={styles.headerNavTags}>Profile</Link>                              
+                                <span className={styles.divider}> | </span>
                                 <Link to={Path.Logout} className={styles.headerNavTags}>Logout</Link>
-                                <span className={styles.welcomeUser}>{`| Welcome, ${email}!`}</span>
+                                
                             </>
                         )
                         :

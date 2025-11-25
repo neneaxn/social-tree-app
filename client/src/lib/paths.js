@@ -1,3 +1,5 @@
+import Profile from "../components/profile/Profile";
+
 const Path = {
     Home: '/',
     Login: '/login',
@@ -11,6 +13,7 @@ const Path = {
     EventDelete: '/events/:eventId/delete',
     EventDetails: '/events/:eventId',
     Search: '/search',
+    Profile: '/profile',
 };
 
 export default Path;

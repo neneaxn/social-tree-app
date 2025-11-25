@@ -53,7 +53,7 @@ describe('Header navigation for guest/user', () => {
 
     // Authenticated User Tests
 
-    test('user navigation links and welcome message', () => {
+    test('user navigation links', () => {
         renderWithAuth(userData);
 
         // All links
@@ -62,10 +62,6 @@ describe('Header navigation for guest/user', () => {
         // Authenticated links
         expect(screen.getByText('Add Event')).toBeInTheDocument();
         expect(screen.getByText('Logout')).toBeInTheDocument();
-        
-        // Welcome Message
-        const welcomeMessage = screen.getByText('| Welcome, peter@abv.bg', { exact: false });
-        expect(welcomeMessage).toBeInTheDocument();
 
         // Guest links
         expect(screen.queryByText('Login')).not.toBeInTheDocument();
