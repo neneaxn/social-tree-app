@@ -2,6 +2,7 @@ import { render, screen } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
 import Header from './Header';
 import AuthContext from '../../contexts/authContext.jsx'; 
+import Path from '../../lib/paths.js';
 
 const renderWithAuth = (authMockValue) => {
     return render(
@@ -84,10 +85,10 @@ describe('Navigation paths work correctly', () => {
         renderWithAuth(userData); 
         
         const allEventsLink = screen.getByText('All events').closest('a');
-        expect(allEventsLink).toHaveAttribute('href', '/events'); 
+        expect(allEventsLink).toHaveAttribute('href', Path.AllEvents); 
         
         const addEventLink = screen.getByText('Add Event').closest('a');
-        expect(addEventLink).toHaveAttribute('href', '/create'); 
+        expect(addEventLink).toHaveAttribute('href', Path.CreateEvent); 
     });
 
 });
