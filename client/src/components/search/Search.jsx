@@ -17,10 +17,13 @@ export default function Search() {
 
     const searchHandler = async (values) => {
         const query = values[SearchKeys.Search];
+        const trimmedQuery = query.trim();
         
-        if (!query.trim()) {
+        if (!trimmedQuery) {
             setSearchResults([]);
             setHasSearched(false);
+
+            alert("Please type a search term (e.g., event title or location) to find events.");
             return;
         }
 
