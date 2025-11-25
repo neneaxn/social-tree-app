@@ -1,6 +1,6 @@
 import { Component } from "react";
 import { Link} from "react-router-dom";
-import styles from '../error/ErrorBoundary.module.css'
+import styles from '../error/ErrorBoundary.module.css';
 import Path from "../../lib/paths";
 
 export default class ErrorBoundary extends Component {

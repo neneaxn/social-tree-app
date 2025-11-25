@@ -14,12 +14,13 @@ import About from "./components/about/AboutUs";
 import Footer from "./components/footer/Footer";
 import Contacts from "./components/contacts/Contacts";
 import Search from "./components/search/Search";
-
-import Path from "./lib/paths";
 import ErrorBoundary from "./components/error/ErrorBoundary";
 import AuthGuardGuest from "./components/guards/AuthGuardGuest";
 import AuthGuardUser from "./components/guards/AuthGuardUser";
 import PageNotFound from "./components/error/page-not-found/PageNotFound";
+
+import Path from "./lib/paths";
+
 
 function App() {
     return (

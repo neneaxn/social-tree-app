@@ -1,5 +1,5 @@
-import styles from '../single-event/EventItem.module.css'
 import { Link } from "react-router-dom";
+import styles from '../single-event/EventItem.module.css';
 
 export default function EventItem({
     _id,

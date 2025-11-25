@@ -1,9 +1,9 @@
 import { useNavigate } from "react-router-dom";
 import styles from './Create.module.css';
 import * as eventService from "../../../services/eventsServices";
-import minMaxValues from "../../../lib/minMaxFormValues";
-import Path from "../../../lib/paths";
 import useForm from "../../../hooks/useForm";
+import Path from "../../../lib/paths";
+import minMaxValues from "../../../lib/minMaxFormValues";
 import toTitleCase from "../../../utils/toTitleCase";
 
 export default function Create() {

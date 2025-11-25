@@ -1,5 +1,6 @@
 import * as request from "../lib/dataFetcher";
 
+
 const baseUrl = 'http://localhost:3030/data/events';
 
 export const getAll = async () => {

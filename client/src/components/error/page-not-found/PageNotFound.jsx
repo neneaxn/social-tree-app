@@ -1,6 +1,7 @@
-import Path from '../../../lib/paths';
-import styles from '../page-not-found/PageNotFound.module.css'
 import { Link } from 'react-router-dom';
+import styles from '../page-not-found/PageNotFound.module.css';
+import Path from '../../../lib/paths';
+
 
 export default function PageNotFound() {
     return (

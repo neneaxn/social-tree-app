@@ -1,6 +1,6 @@
-import Path from '../../../lib/paths'
-import {Link} from 'react-router-dom'
-import styles from '../event-not-found/EventNotFound.module.css'
+import {Link} from 'react-router-dom';
+import styles from '../event-not-found/EventNotFound.module.css';
+import Path from '../../../lib/paths';
 
 export default function EventNotFound() {
     return (

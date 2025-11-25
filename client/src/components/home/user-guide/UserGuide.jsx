@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import styles from '../user-guide/UserGuide.module.css'
+import styles from '../user-guide/UserGuide.module.css';
 import Path from '../../../lib/paths';
 
 export default function UserGuide() {

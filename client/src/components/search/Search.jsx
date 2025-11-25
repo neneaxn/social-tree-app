@@ -1,9 +1,10 @@
 import { useState } from "react";
-import Loading from "../loading/Loading";
+import styles from '../search/Search.module.css';
+import * as eventService from '../../services/eventsServices';
 import EventItem from "../event/all-events/single-event/EventItem";
-import * as eventService from '../../services/eventsServices'
+import Loading from "../loading/Loading";
 import useForm from "../../hooks/useForm";
-import styles from '../search/Search.module.css'
+
 
 export default function Search() {
     const [searchResults, setSearchResults] = useState([]);

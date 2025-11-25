@@ -1,9 +1,10 @@
+import { useEffect, useState } from "react";
 import { useNavigate, useParams} from "react-router-dom";
 import styles from './Edit.module.css';
 import * as eventService from "../../../services/eventsServices";
-import { useEffect, useState } from "react";
-import minMaxValues from "../../../lib/minMaxFormValues";
 import toTitleCase from "../../../utils/toTitleCase";
+import minMaxValues from "../../../lib/minMaxFormValues";
+
 
 export default function EventEdit() {
     const navigate = useNavigate();

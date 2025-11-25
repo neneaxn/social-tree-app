@@ -1,7 +1,7 @@
-import styles from './Events.module.css'
-import EventItem from './single-event/EventItem';
 import { useEffect, useState } from 'react';
-import * as eventService from '../../../services/eventsServices'
+import styles from './Events.module.css';
+import * as eventService from '../../../services/eventsServices';
+import EventItem from './single-event/EventItem';
 import Loading from '../../loading/Loading';
 
 export default function Events() {

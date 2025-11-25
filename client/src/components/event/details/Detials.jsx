@@ -1,13 +1,13 @@
 import { useParams, Link, useNavigate } from "react-router-dom";
 import { useContext, useEffect, useState } from "react";
+import styles from '../details/Details.module.css';
 import * as eventService from "../../../services/eventsServices";
 import * as attendanceService from "../../../services/attendanceService";
-import styles from '../details/Details.module.css'
 import AuthContext from "../../../contexts/authContext";
 import Path from "../../../lib/paths";
-import pathToUrl from '../../../utils/pathToUrl'
-import EventNotFound from "../../error/event-not-found/EventNotFound";
+import pathToUrl from '../../../utils/pathToUrl';
 import Loading from "../../loading/Loading";
+import EventNotFound from "../../error/event-not-found/EventNotFound";
 
 export default function EventDetails() {
     const navigate = useNavigate();

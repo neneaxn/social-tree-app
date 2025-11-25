@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
+import styles from '../home-events/HomeEvent.module.css';
 import Path from '../../../lib/paths';
 import pathToUrl from '../../../utils/pathToUrl';
-import styles from '../home-events/HomeEvent.module.css'
 
 export default function HomeEvents({
     _id,

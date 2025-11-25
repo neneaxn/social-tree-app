@@ -1,8 +1,8 @@
 import { createContext } from "react";
 import { useNavigate } from 'react-router-dom';
-import * as authService from '../services/authService'
-import Path from "../lib/paths";
+import * as authService from '../services/authService';
 import useLocalStorageState from "../hooks/useLocalStorageState";
+import Path from "../lib/paths";
 
 const AuthContext = createContext();
 

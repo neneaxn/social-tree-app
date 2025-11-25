@@ -1,8 +1,8 @@
-import Path from '../../lib/paths';
-import styles from '../footer/Footer.module.css';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFacebook, faInstagram, faXTwitter } from '@fortawesome/free-brands-svg-icons';
+import styles from '../footer/Footer.module.css';
+import Path from '../../lib/paths';
 
 export default function Footer() {
     const currentYear = new Date().getFullYear();

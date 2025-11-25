@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
-import * as eventService from '../../services/eventsServices'
-import styles from './Home.module.css'
+import styles from './Home.module.css';
+import * as eventService from '../../services/eventsServices';
 import HomeEvents from './home-events/HomeEvent';
 import Values from './values/Values';
 import UserGuide from './user-guide/UserGuide';
