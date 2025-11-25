@@ -27,3 +27,13 @@ export const getByUserAndEvent = async (eventId, userId) => {
     //!!server returns an array:
     return result[0] || null;
 }
+
+export const getEventsAttendedByUser = async (userId) => {
+    const where = `_ownerId="${userId}"`;
+    const url = `${baseUrl}?where=${encodeURIComponent(where)}`;
+
+    const result = await request.get(url);
+    
+    // event IDs only needed
+    return result.map(record => record.eventId);
+};

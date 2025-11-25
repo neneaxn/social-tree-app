@@ -1,18 +1,41 @@
 import { useContext, useEffect, useState } from "react";
 import styles from './Profile.module.css';
 import * as eventService from '../../services/eventsServices'; 
+import * as attendanceService from '../../services/attendanceService'
 import AuthContext from "../../contexts/authContext";
 import EventItem from "../event/all-events/single-event/EventItem";
 
 
 export default function Profile() {    
     const { isAuthenticated, email, userId } = useContext(AuthContext);
-    const [userEvents, setUserEvents] = useState([])
+    const [userEvents, setUserEvents] = useState([]);
+    const [userJoinedEvents, setUserJoinedEvents] = useState([]);
 
     useEffect(() => {
             eventService.getByOwner(userId)
                 .then(res => setUserEvents(res))
                 .catch(err => console.log(`${err.message}: events`))
+    }, [userId]);
+
+    useEffect(() => {
+        if (!userId) {
+            setUserJoinedEvents([]);
+            return;
+        }
+
+        const fetchJoinedEvents = async () => {
+            try {
+                const attendedEventIds = await attendanceService.getEventsAttendedByUser(userId);
+                const joinedEvents = await eventService.getAttendedEventsByIds(attendedEventIds);
+
+                setUserJoinedEvents(joinedEvents);
+            } catch (err) {
+                console.error("Error fetching joined events: ", err);
+                setUserJoinedEvents([]);
+            }
+        };
+
+        fetchJoinedEvents();
     }, [userId]);
     
 
@@ -27,6 +50,7 @@ export default function Profile() {
 
     return (
         <section className={styles.profile}>
+            {/* user info */}
             <div className={styles.profileHeader}>
                 <h1 className={styles.profileHeading}>User Profile</h1>
                 <div className={styles.userInfo}>
@@ -37,6 +61,7 @@ export default function Profile() {
                 </div>
             </div>
 
+            {/* events created by user */}
             <div className={styles.myEventsSection}>
                 <h2 className={styles.eventsHeading}>Events You Created</h2>
 
@@ -49,6 +74,23 @@ export default function Profile() {
                     ) : (
                         <p className={styles.noEvents}>
                             You haven't created any events yet!
+                        </p>
+                    )}
+                </div>
+            </div>
+
+            {/* events user is attending */}
+            <div className={styles.myEventsSection}>
+                <h2 className={styles.eventsHeading}>Events You Are Attending</h2>
+
+                <div className={styles.eventsGrid}>
+                    {userJoinedEvents.length > 0 ? (
+                         userJoinedEvents.map(event => (
+                            <EventItem key={event._id} {...event} />
+                         ))
+                    ) : (
+                        <p className={styles.noEvents}>
+                            You haven't joined any events yet!
                         </p>
                     )}
                 </div>

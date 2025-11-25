@@ -2,7 +2,7 @@
     background-color: #F9F7F5; 
     padding: 5em 20px;
     min-height: calc(100vh - 200px); 
-    max-width: 1400px; 
+    max-width: 1800px; 
     margin: 0 auto;
     font-family: 'Lato', sans-serif;
 }
@@ -83,6 +83,8 @@
     max-width: 1650px; 
     width: 100%;
     margin: 0 auto; 
+    margin-left: auto;
+    margin-right: auto;
     display: grid;
     grid-template-columns: repeat(3, 1fr); 
     gap: 80px; 
@@ -91,7 +93,7 @@
 
 
 .noEvents {
-    font-size: 70px; 
+    font-size: 50px; 
     color: #7f6e5c; 
     margin: 100px auto; 
     text-align: center;

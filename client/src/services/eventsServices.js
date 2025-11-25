@@ -51,8 +51,24 @@ export const getByOwner = async (userId) => {
     const url = `${baseUrl}?where=${encodeURIComponent(where)}`;
 
     const result = await request.get(url);
-    console.log(result);
     
     //!!server returns an array:
+    return result;
+};
+
+export const getAttendedEventsByIds = async (eventIds) => {
+    if (eventIds.length === 0) {
+        return [];
+    }
+    
+    // Construct the filter: _id IN ('id1', 'id2', 'id3', ...)
+    const idsString = eventIds.map(id => `"${id}"`).join(',');
+    const filter = `_id IN (${idsString})`;
+
+    const encodedFilter = encodeURIComponent(filter);
+    const url = `${baseUrl}?where=${encodedFilter}`;
+
+    const result = await request.get(url);
+
     return result;
 };
