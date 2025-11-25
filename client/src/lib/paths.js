@@ -1,5 +1,3 @@
-import Search from "../components/search/Search";
-
 const Path = {
     Home: '/',
     Login: '/login',

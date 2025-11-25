@@ -28,17 +28,6 @@ export const edit = async (eventId, eventData) => {
 
 export const remove = async (eventId) => request.remove(`${baseUrl}/${eventId}`);
 
-// export const search = async (field, query) => {
-//     const encodedMatch = encodeURIComponent(`${field} LIKE "${query}"`);
-//     const searchUrl = `${baseUrl}?where=${encodedMatch}`;
-
-//     const result = await request.get(searchUrl);
-
-//     return result;
-// };
-
-// eventService.js - UPDATED search function
-
 export const search = async (query) => {
 
     const trimmedQuery = query.trim();

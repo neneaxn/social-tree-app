@@ -14,7 +14,10 @@ export default function Logout() {
                 logoutHandler();
                 navigate(Path.Home)
                 })
-            .catch(() => navigate(Path.Home))
+            .catch((err) => {
+                console.log(`Error logging out: ${err.message}`);               
+                navigate(Path.Home)
+            })
     }, []);
 
     return null;
