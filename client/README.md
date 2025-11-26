@@ -11,6 +11,7 @@ The Event Explorer Platform is a single-page application built with React that a
 *Users features:
 - Register: Allows new users to create accounts. Includes client-side validation for email, password length, and password confirmation.
 - Login: Handles user sign-in to access protected routes and features. Allows signed-in users to create/edit/delete/join events.
+- Admin functionality: has permission to edit/delete events
 
 The project structure is organized by logically grouped folders (components, services, utils, etc).
 
