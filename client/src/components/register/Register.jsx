@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import styles from './Register.module.css';
 import AuthContext from "../../contexts/authContext";
 import useForm from "../../hooks/useForm";
+import minMaxValues from "../../lib/minMaxFormValues";
 
 const RegisterKeys = {
     Email: 'email',
@@ -34,7 +35,7 @@ export default function Register() {
                             onChange={onChange}
                             value={values[RegisterKeys.Email]}
                             required
-                            maxLength={50}
+                            maxLength={minMaxValues.emailMaxLength}
                         />
                 
                         <label className={styles.label} htmlFor="password">Password:</label>
@@ -46,8 +47,8 @@ export default function Register() {
                             onChange={onChange}
                             value={values[RegisterKeys.Password]}
                             required
-                            minLength={6}
-                            maxLength={30}
+                            minLength={minMaxValues.passwordMinLength}
+                            maxLength={minMaxValues.passwordMaxLength}
                         />
 
                         <label className={styles.label} htmlFor="confirm-password">Confirm Password:</label>
@@ -59,8 +60,8 @@ export default function Register() {
                             onChange={onChange}
                             value={values[RegisterKeys.ConfirmPassword]}
                             required
-                            minLength={6}
-                            maxLength={30}
+                            minLength={minMaxValues.passwordMinLength}
+                            maxLength={minMaxValues.passwordMaxLength}
                         />
 
                         <input className={styles.btnSubmit} type="submit" value="Register"/>
