@@ -7,7 +7,7 @@ import EventItem from "../event/all-events/single-event/EventItem";
 
 
 export default function Profile() {    
-    const { isAuthenticated, email, userId } = useContext(AuthContext);
+    const { isAuthenticated, email, userId, isAdmin } = useContext(AuthContext);
     const [userEvents, setUserEvents] = useState([]);
     const [userJoinedEvents, setUserJoinedEvents] = useState([]);
 
@@ -61,40 +61,47 @@ export default function Profile() {
                 </div>
             </div>
 
-            {/* events created by user */}
-            <div className={styles.myEventsSection}>
-                <h2 className={styles.eventsHeading}>Events You Created</h2>
+            {isAdmin ? (
+                <p className={styles.noEvents} style={{color: '#6C5749'}}>
+                    Administrative Access. You can edit/delete any event.
+                </p>
+            ) : (
+                <div>
+                    {/* events created by user */}
+                    <div className={styles.myEventsSection}>
+                        <h2 className={styles.eventsHeading}>Events You Created</h2>
 
-                <div className={styles.eventsGrid}>
-                    {userEvents.length > 0 ? (
-                        userEvents.map(event => (
-                            // Reusing the existing EventItem component
-                            <EventItem key={event._id} {...event} />
-                        ))
-                    ) : (
-                        <p className={styles.noEvents}>
-                            You haven't created any events yet!
-                        </p>
-                    )}
-                </div>
-            </div>
+                        <div className={styles.eventsGrid}>
+                            {userEvents.length > 0 ? (
+                                userEvents.map(event => (
+                                    // Reusing the existing EventItem component
+                                    <EventItem key={event._id} {...event} />
+                                ))
+                            ) : (
+                                <p className={styles.noEvents}>
+                                    You haven't created any events yet!
+                                </p>
+                            )}
+                        </div>
+                    </div>
 
-            {/* events user is attending */}
-            <div className={styles.myEventsSection}>
-                <h2 className={styles.eventsHeading}>Events You Are Attending</h2>
+                    {/* events user is attending */}
+                    <div className={styles.myEventsSection}>
+                        <h2 className={styles.eventsHeading}>Events You Are Attending</h2>
 
-                <div className={styles.eventsGrid}>
-                    {userJoinedEvents.length > 0 ? (
-                         userJoinedEvents.map(event => (
-                            <EventItem key={event._id} {...event} />
-                         ))
-                    ) : (
-                        <p className={styles.noEvents}>
-                            You haven't joined any events yet!
-                        </p>
-                    )}
-                </div>
-            </div>
+                        <div className={styles.eventsGrid}>
+                            {userJoinedEvents.length > 0 ? (
+                                userJoinedEvents.map(event => (
+                                    <EventItem key={event._id} {...event} />
+                                ))
+                            ) : (
+                                <p className={styles.noEvents}>
+                                    You haven't joined any events yet!
+                                </p>
+                            )}
+                        </div>
+                    </div>
+                </div>)}
         </section>
     );
 }
