@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import styles from './Login.module.css';
 import AuthContext from "../../contexts/authContext";
 import useForm from "../../hooks/useForm";
+import minMaxValues from "../../lib/minMaxFormValues";
 
 const LoginFormKeys = {
     Email: 'email',
@@ -44,7 +45,7 @@ export default function Login() {
                         value={values[LoginFormKeys.Password]}
                         onChange={onChange}
                         required
-                        minLength={6}
+                        minLength={minMaxValues.passwordMinLength}
                     />      
         
                     <input className={styles.btnSubmit} type="submit" value="Login"/>

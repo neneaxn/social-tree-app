@@ -11,10 +11,12 @@ export const AuthProvider = ({
 }) => {
     const navigate = useNavigate();
     const [auth, setAuth] = useLocalStorageState('auth', {});
+    const adminEmail = 'admin@abv.bg';
 
     const loginSubmitHandler = async (values) => {
-      const email = values.email.trim();
+      const email = values.email.trim().toLowerCase();
       const password = values.password;
+      const isAdmin = adminEmail === email;
 
       if (!email || !password) {
           const error = "Both email and password fields are required.";
@@ -23,9 +25,18 @@ export const AuthProvider = ({
       }
 
       try {
-          const result = await authService.login(email, password)
-          setAuth(result);
+          const result = await authService.login(email, password);       
+
+          const authData = { 
+              ...result,
+              isAdmin: isAdmin 
+          };
+
+          setAuth(authData);
+
           localStorage.setItem('accessToken', result.accessToken);
+          localStorage.setItem('isAdmin', isAdmin ? 'true' : 'false');
+
           navigate(Path.Home);
       } catch(err) {
           alert(err.message);
@@ -57,6 +68,7 @@ export const AuthProvider = ({
     const logoutHandler = () => {
         setAuth({});
         localStorage.removeItem('accessToken');
+        localStorage.removeItem('isAdmin');
     }
 
     const values = {
@@ -66,6 +78,7 @@ export const AuthProvider = ({
       email: auth.email,
       userId: auth._id,
       isAuthenticated: !!auth.accessToken,
+      isAdmin: !!auth.isAdmin,
     };
 
     return (

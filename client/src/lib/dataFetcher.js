@@ -8,12 +8,20 @@ const buildOptions = (data) => {
         }
     }
 
-    const token = localStorage.getItem('accessToken');    
+    const token = localStorage.getItem('accessToken');
+    const isAdmin = localStorage.getItem('isAdmin');
 
     if (token) {
         options.headers = {
             ...options.headers,
             'X-Authorization': token
+        }
+    }
+
+    if (isAdmin === 'true' && token) {
+        options.headers = {
+            ...options.headers,
+            'X-Admin': 'true'
         }
     }
 

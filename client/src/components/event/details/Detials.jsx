@@ -11,7 +11,7 @@ import EventNotFound from "../../error/event-not-found/EventNotFound";
 
 export default function EventDetails() {
     const navigate = useNavigate();
-    const { isAuthenticated, userId } = useContext(AuthContext);
+    const { isAuthenticated, userId, isAdmin } = useContext(AuthContext);
     const { eventId } = useParams();
     const [ event, setEvent ] = useState({});
     const [ currentAttendanceRecord, setCurrentAttendanceRecord ] = useState(null);
@@ -109,6 +109,7 @@ export default function EventDetails() {
 
     const buttonText = isAttending ? "Unsubscribe" : "Join Event";
     const isOwner = userId === event._ownerId;
+    const canEditOrDelete = isOwner || isAdmin;
 
     //message while data is loading
     if (isLoading) {
@@ -144,7 +145,7 @@ export default function EventDetails() {
                     </p>
                     
                     {/* Join functionality */}
-                    {(isAuthenticated && !isOwner) && (
+                    {(isAuthenticated && !canEditOrDelete) && (
                     <button
                         className={styles.joinEventButton}
                         style={{backgroundColor: isAttending ? '#9c8b77ff' : '#d4d0b4ff'}}
@@ -158,7 +159,7 @@ export default function EventDetails() {
                 </div>
                 
                 {/* editing permissions */}
-                {isOwner && (
+                {canEditOrDelete && (
                     <div id="event-buttons" className={styles.buttonsContainer}>
                         <Link to={pathToUrl(Path.EventEdit, { eventId })} className={styles.editButtonStyle}>
                             Edit
