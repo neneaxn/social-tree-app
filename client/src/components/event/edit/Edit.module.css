@@ -86,3 +86,16 @@
     color: white;
     background-color: #7d7352;
 }
+
+.dateTimeRow {
+    display: flex;
+    gap: 20px; 
+    margin-bottom: 10px; 
+}
+
+.dateInput,
+.timeInput {
+    width: 50%; 
+    box-sizing: border-box; 
+    text-align: center; 
+}

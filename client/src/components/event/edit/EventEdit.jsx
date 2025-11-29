@@ -15,6 +15,8 @@ export default function EventEdit() {
         location: '',
         imageUrl: '',
         description: '',
+        date: '',
+        time: '',
     });
 
     useEffect(() => {
@@ -98,6 +100,30 @@ export default function EventEdit() {
                         required
                         minLength={minMaxValues.titleLocationMinLength}
                     />
+
+                    <label className={styles.label} htmlFor="date">When:</label>
+                    <div className={styles.dateTimeRow}>
+                        
+                        <input 
+                            className={`${styles.inputText} ${styles.dateInput}`} 
+                            type="date" 
+                            id="date" 
+                            name="date" 
+                            value={event.date}
+                            onChange={onChange}
+                            required
+                        />
+                        
+                        <input 
+                            className={`${styles.inputText} ${styles.timeInput}`} 
+                            type="time" 
+                            id="time" 
+                            name="time" 
+                            value={event.time}
+                            onChange={onChange}
+                            required
+                        />
+                    </div>                    
 
                     <label className={styles.label} htmlFor="imageUrl">Image:</label>
                     <input 

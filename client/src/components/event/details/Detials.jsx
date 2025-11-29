@@ -121,6 +121,12 @@ export default function EventDetails() {
         return <EventNotFound/>
     }
 
+    const formattedDate = event.date ? new Date(event.date).toLocaleDateString('en-US', { 
+        year: 'numeric', 
+        month: 'long', 
+        day: 'numeric' 
+    }) : 'TBD';
+
     return (
 
         <div className={styles.eventDetails}>
@@ -131,7 +137,9 @@ export default function EventDetails() {
                     <img className={styles.eventImg} src={event.imageUrl} alt={event.title} />
                     <h1 className={styles.detailsHeadingOne}>{event.title}</h1>
                     <span className={styles.type}>Type: {event.type}</span> <br/>
-                    <span className={styles.location}>Location: {event.location}</span>                    
+                    <span className={styles.location}>Location: {event.location}</span>     
+                    <span className={styles.dateTime}>Date: {formattedDate} at {event.time}</span>
+                    <br/>               
                 </div>
 
                 <p className={styles.text}>
