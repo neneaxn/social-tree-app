@@ -5,9 +5,11 @@ import useForm from "../../../hooks/useForm";
 import Path from "../../../lib/paths";
 import minMaxValues from "../../../lib/minMaxFormValues";
 import toTitleCase from "../../../utils/toTitleCase";
+import useImageValidation from "../../../hooks/useImageValidation";
 
 export default function Create() {
     const navigate = useNavigate();
+    const validateImageURL = useImageValidation();
 
     const initialFormValues = {
         type: 'Business', // default value
@@ -27,10 +29,17 @@ export default function Create() {
             throw new Error(error);
         }
 
+        if (!validateImageURL(values.imageUrl)) {
+            const error = "Invalid image URL.";
+            alert(error);
+            throw new Error(error);
+        }
+
         const formattedValues = {
             ...values,
             title: toTitleCase(values.title),
         };
+        
 
         try {
             await eventService.create(formattedValues);

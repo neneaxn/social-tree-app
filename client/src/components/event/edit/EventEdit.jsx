@@ -4,10 +4,12 @@ import styles from './Edit.module.css';
 import * as eventService from "../../../services/eventsServices";
 import toTitleCase from "../../../utils/toTitleCase";
 import minMaxValues from "../../../lib/minMaxFormValues";
+import useImageValidation from "../../../hooks/useImageValidation";
 
 
 export default function EventEdit() {
     const navigate = useNavigate();
+    const validateImageURL = useImageValidation();
     const { eventId } = useParams();
     const [event, setEvent] = useState({
         type: '',
@@ -34,6 +36,12 @@ export default function EventEdit() {
         if (values.description.length < minMaxValues.descriptionMinLength) {
             const error = `Description must be at least ${minMaxValues.descriptionMinLength} characters long.`;
             alert(error)
+            throw new Error(error);
+        }
+
+        if (!validateImageURL(values.imageUrl)) {
+            const error = "Invalid image URL.";
+            alert(error);
             throw new Error(error);
         }
 
