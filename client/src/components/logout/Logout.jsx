@@ -19,7 +19,7 @@ export default function Logout() {
                 console.log(`Error logging out: ${err.message}`);               
                 navigate(Path.Home)
             })
-    }, []);
+    });
 
     return null;
 }

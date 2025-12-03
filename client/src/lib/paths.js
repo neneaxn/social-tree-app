@@ -1,5 +1,3 @@
-import Profile from "../components/profile/Profile";
-
 const Path = {
     Home: '/',
     Login: '/login',

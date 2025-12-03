@@ -79,7 +79,7 @@ export default function Profile() {
                                 ))
                             ) : (
                                 <p className={styles.noEvents}>
-                                    You haven't created any events yet!
+                                    You have not created any events yet!
                                 </p>
                             )}
                         </div>
@@ -96,7 +96,7 @@ export default function Profile() {
                                 ))
                             ) : (
                                 <p className={styles.noEvents}>
-                                    You haven't joined any events yet!
+                                    You have not joined any events yet!
                                 </p>
                             )}
                         </div>

@@ -28,13 +28,13 @@ export default function Footer() {
                 <div className={styles.footerSection}>
                     <h4 className={styles.footerHeading}>Connect</h4>
                     <div className={styles.socialIcons}>
-                        <a href="https://www.facebook.com/" target="_blank" className={styles.socialIcon}>
+                        <a href="https://www.facebook.com/" target="_blank" rel="noreferrer" className={styles.socialIcon}>
                             <FontAwesomeIcon icon={faFacebook} />
                         </a>
-                        <a href="https://www.instagram.com/" target="_blank" className={styles.socialIcon}>
+                        <a href="https://www.instagram.com/" target="_blank" rel="noreferrer" className={styles.socialIcon}>
                             <FontAwesomeIcon icon={faInstagram} />
                         </a>
-                        <a href="https://x.com/" target="_blank" className={styles.socialIcon}>
+                        <a href="https://x.com/" target="_blank" rel="noreferrer" className={styles.socialIcon}>
                             <FontAwesomeIcon icon={faXTwitter} />
                         </a>
                     </div>

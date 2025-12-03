@@ -3,12 +3,10 @@ import { Link } from 'react-router-dom';
 import styles from './Header.module.css';
 import AuthContext from '../../contexts/authContext';
 import Path from '../../lib/paths';
-import Profile from '../profile/Profile';
 
 export default function Header() {
     const {
         isAuthenticated,
-        email
     } = useContext(AuthContext);
 
     return(

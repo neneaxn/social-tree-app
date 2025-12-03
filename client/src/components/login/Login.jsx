@@ -51,7 +51,7 @@ export default function Login() {
                     <input className={styles.btnSubmit} type="submit" value="Login"/>
         
                     <div>
-                        <p className={styles.clickHereP}>If you don't have an account click
+                        <p className={styles.clickHereP}>If you do not have an account click
                             <Link to='/register' className={styles.clickHereA}> here</Link>
                         </p>
                     </div>

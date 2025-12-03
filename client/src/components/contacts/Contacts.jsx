@@ -8,7 +8,7 @@ export default function Contacts() {
                 <h1 className={styles.headingOne}>Reach Out & Connect</h1>
                 
                 <p className={styles.introText}>
-                    We're here to help you grow your social tree. Whether you have questions about hosting an event or need support finding the perfect gathering, we're ready to assist.
+                    We are here to help you grow your social tree. Whether you have questions about hosting an event or need support finding the perfect gathering, we are ready to assist.
                 </p>
                 
                 <div className={styles.contactDetails}>
